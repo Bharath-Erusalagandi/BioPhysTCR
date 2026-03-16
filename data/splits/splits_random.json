@@ -1,0 +1,2567 @@
+{
+  "train": [
+    {
+      "pdb_id": "5vcj",
+      "filename": "5vcj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5vcj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y19",
+      "filename": "4y19.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y19.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ek5",
+      "filename": "8ek5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ek5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2gj6",
+      "filename": "2gj6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2gj6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt2",
+      "filename": "7zt2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7qpj",
+      "filename": "7qpj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7qpj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6p64",
+      "filename": "6p64.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6p64.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2o",
+      "filename": "7n2o.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2o.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pvd",
+      "filename": "6pvd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pvd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n4k",
+      "filename": "7n4k.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n4k.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6eqb",
+      "filename": "6eqb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6eqb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5m01",
+      "filename": "5m01.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5m01.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1lp9",
+      "filename": "1lp9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1lp9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uon",
+      "filename": "6uon.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uon.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4nqc",
+      "filename": "4nqc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4nqc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4l4t",
+      "filename": "4l4t.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4l4t.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2f53",
+      "filename": "2f53.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2f53.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5hyj",
+      "filename": "5hyj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5hyj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7lli",
+      "filename": "7lli.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7lli.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ryo",
+      "filename": "7ryo.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ryo.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tfk",
+      "filename": "3tfk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tfk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4eup",
+      "filename": "4eup.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4eup.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9gv6",
+      "filename": "9gv6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9gv6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8vcy",
+      "filename": "8vcy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8vcy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4x6d",
+      "filename": "4x6d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4x6d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ndu",
+      "filename": "7ndu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ndu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5tje",
+      "filename": "5tje.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5tje.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4l8s",
+      "filename": "4l8s.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4l8s.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uln",
+      "filename": "6uln.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uln.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uk4",
+      "filename": "6uk4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uk4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3he6",
+      "filename": "3he6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3he6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7dzn",
+      "filename": "7dzn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7dzn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1yc7",
+      "filename": "1yc7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1yc7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7t2d",
+      "filename": "7t2d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7t2d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2j8u",
+      "filename": "2j8u.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2j8u.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4en3",
+      "filename": "4en3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4en3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v1a",
+      "filename": "6v1a.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v1a.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3sdx",
+      "filename": "3sdx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3sdx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8dnt",
+      "filename": "8dnt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8dnt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8vd2",
+      "filename": "8vd2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8vd2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ye4",
+      "filename": "8ye4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ye4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3mbe",
+      "filename": "3mbe.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3mbe.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4z7v",
+      "filename": "4z7v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4z7v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1g6r",
+      "filename": "1g6r.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1g6r.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d2l",
+      "filename": "5d2l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d2l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6ulr",
+      "filename": "6ulr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6ulr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p2r",
+      "filename": "4p2r.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p2r.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9d95",
+      "filename": "9d95.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9d95.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt9",
+      "filename": "7zt9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2bnr",
+      "filename": "2bnr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2bnr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tpu",
+      "filename": "3tpu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tpu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8rym",
+      "filename": "8rym.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8rym.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5ksa",
+      "filename": "5ksa.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5ksa.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3cvh",
+      "filename": "3cvh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3cvh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pja",
+      "filename": "4pja.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pja.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6xc9",
+      "filename": "6xc9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6xc9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pri",
+      "filename": "4pri.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pri.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9bys",
+      "filename": "9bys.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9bys.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5hho",
+      "filename": "5hho.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5hho.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pud",
+      "filename": "6pud.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pud.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6px6",
+      "filename": "6px6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6px6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2vlj",
+      "filename": "2vlj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2vlj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5ivx",
+      "filename": "5ivx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5ivx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8shi",
+      "filename": "8shi.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8shi.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tzv",
+      "filename": "3tzv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tzv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9iky",
+      "filename": "9iky.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9iky.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v13",
+      "filename": "6v13.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v13.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5tez",
+      "filename": "5tez.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5tez.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p2q",
+      "filename": "4p2q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p2q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qi9",
+      "filename": "3qi9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qi9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1w72",
+      "filename": "1w72.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1w72.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8yj2",
+      "filename": "8yj2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8yj2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v0y",
+      "filename": "6v0y.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v0y.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5wkf",
+      "filename": "5wkf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5wkf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1mwa",
+      "filename": "1mwa.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1mwa.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5brz",
+      "filename": "5brz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5brz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4prh",
+      "filename": "4prh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4prh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rrg",
+      "filename": "7rrg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rrg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7llj",
+      "filename": "7llj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7llj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3gjf",
+      "filename": "3gjf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3gjf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3hae",
+      "filename": "3hae.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3hae.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6puc",
+      "filename": "6puc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6puc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ow5",
+      "filename": "7ow5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ow5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3sda",
+      "filename": "3sda.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3sda.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6dfs",
+      "filename": "6dfs.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6dfs.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6eqa",
+      "filename": "6eqa.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6eqa.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d2n",
+      "filename": "5d2n.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d2n.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9ru5",
+      "filename": "9ru5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9ru5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2oi9",
+      "filename": "2oi9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2oi9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3scm",
+      "filename": "3scm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3scm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u16",
+      "filename": "5u16.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u16.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7q9b",
+      "filename": "7q9b.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7q9b.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qux",
+      "filename": "3qux.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qux.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8wul",
+      "filename": "8wul.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8wul.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6puk",
+      "filename": "6puk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6puk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2r",
+      "filename": "7n2r.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2r.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5xot",
+      "filename": "5xot.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5xot.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9c9d",
+      "filename": "9c9d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9c9d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3rdt",
+      "filename": "3rdt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3rdt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c08",
+      "filename": "5c08.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c08.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7z50",
+      "filename": "7z50.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7z50.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y4f",
+      "filename": "4y4f.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y4f.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1u3h",
+      "filename": "1u3h.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1u3h.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3w0w",
+      "filename": "3w0w.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3w0w.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2n",
+      "filename": "7n2n.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2n.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6u3n",
+      "filename": "6u3n.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6u3n.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2esv",
+      "filename": "2esv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2esv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ryq",
+      "filename": "8ryq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ryq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7na5",
+      "filename": "7na5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7na5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v15",
+      "filename": "6v15.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v15.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5men",
+      "filename": "5men.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5men.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bj8",
+      "filename": "6bj8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bj8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vxs",
+      "filename": "3vxs.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vxs.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vm8",
+      "filename": "6vm8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vm8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3o8x",
+      "filename": "3o8x.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3o8x.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2po6",
+      "filename": "2po6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2po6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2iam",
+      "filename": "2iam.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2iam.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3kxf",
+      "filename": "3kxf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3kxf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uz1",
+      "filename": "6uz1.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uz1.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5e6i",
+      "filename": "5e6i.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5e6i.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y4h",
+      "filename": "4y4h.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y4h.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mnm",
+      "filename": "6mnm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mnm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7su9",
+      "filename": "7su9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7su9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vxr",
+      "filename": "3vxr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vxr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3ffc",
+      "filename": "3ffc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3ffc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1bd2",
+      "filename": "1bd2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1bd2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4jrx",
+      "filename": "4jrx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4jrx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9bty",
+      "filename": "9bty.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9bty.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vrn",
+      "filename": "6vrn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vrn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8gvb",
+      "filename": "8gvb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8gvb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ryp",
+      "filename": "8ryp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ryp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5hhm",
+      "filename": "5hhm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5hhm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pj8",
+      "filename": "4pj8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pj8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bnk",
+      "filename": "6bnk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bnk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7nmg",
+      "filename": "7nmg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7nmg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8f5a",
+      "filename": "8f5a.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8f5a.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8i5d",
+      "filename": "8i5d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8i5d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8es8",
+      "filename": "8es8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8es8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vm7",
+      "filename": "6vm7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vm7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6xcp",
+      "filename": "6xcp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6xcp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7t2b",
+      "filename": "7t2b.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7t2b.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7pdw",
+      "filename": "7pdw.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7pdw.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7jwj",
+      "filename": "7jwj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7jwj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4g9f",
+      "filename": "4g9f.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4g9f.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2ckb",
+      "filename": "2ckb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2ckb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ryn",
+      "filename": "7ryn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ryn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3rug",
+      "filename": "3rug.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3rug.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4n0c",
+      "filename": "4n0c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4n0c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5w1v",
+      "filename": "5w1v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5w1v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4jfe",
+      "filename": "4jfe.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4jfe.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3pwp",
+      "filename": "3pwp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3pwp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c0a",
+      "filename": "5c0a.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c0a.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4nqd",
+      "filename": "4nqd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4nqd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1ao7",
+      "filename": "1ao7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1ao7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7l1d",
+      "filename": "7l1d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7l1d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1d9k",
+      "filename": "1d9k.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1d9k.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pje",
+      "filename": "4pje.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pje.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3e3q",
+      "filename": "3e3q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3e3q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2bnq",
+      "filename": "2bnq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2bnq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p5t",
+      "filename": "4p5t.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p5t.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3kpr",
+      "filename": "3kpr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3kpr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjx",
+      "filename": "4pjx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2uwe",
+      "filename": "2uwe.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2uwe.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vmc",
+      "filename": "6vmc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vmc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7re7",
+      "filename": "7re7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7re7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5w1w",
+      "filename": "5w1w.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5w1w.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4elm",
+      "filename": "4elm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4elm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3huj",
+      "filename": "3huj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3huj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6dkp",
+      "filename": "6dkp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6dkp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9j4t",
+      "filename": "9j4t.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9j4t.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5l2k",
+      "filename": "5l2k.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5l2k.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3arb",
+      "filename": "3arb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3arb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5wlg",
+      "filename": "5wlg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5wlg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3he7",
+      "filename": "3he7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3he7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6q3s",
+      "filename": "6q3s.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6q3s.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ow6",
+      "filename": "7ow6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ow6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8wte",
+      "filename": "8wte.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8wte.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mtm",
+      "filename": "6mtm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mtm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5ks9",
+      "filename": "5ks9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5ks9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3utt",
+      "filename": "3utt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3utt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4wuu",
+      "filename": "4wuu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4wuu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n1e",
+      "filename": "7n1e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n1e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pvc",
+      "filename": "6pvc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pvc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4mxq",
+      "filename": "4mxq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4mxq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2s",
+      "filename": "7n2s.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2s.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9k2i",
+      "filename": "9k2i.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9k2i.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p4k",
+      "filename": "4p4k.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p4k.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5yxu",
+      "filename": "5yxu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5yxu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3d3v",
+      "filename": "3d3v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3d3v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6puj",
+      "filename": "6puj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6puj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7bbg",
+      "filename": "7bbg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7bbg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8trr",
+      "filename": "8trr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8trr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8en8",
+      "filename": "8en8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8en8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4wwk",
+      "filename": "4wwk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4wwk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4mji",
+      "filename": "4mji.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4mji.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3uts",
+      "filename": "3uts.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3uts.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8eo8",
+      "filename": "8eo8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8eo8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjf",
+      "filename": "4pjf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3dxa",
+      "filename": "3dxa.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3dxa.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5m00",
+      "filename": "5m00.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5m00.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mkr",
+      "filename": "6mkr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mkr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tvm",
+      "filename": "3tvm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tvm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6r2l",
+      "filename": "6r2l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6r2l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3c5z",
+      "filename": "3c5z.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3c5z.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5yxn",
+      "filename": "5yxn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5yxn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8gvi",
+      "filename": "8gvi.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8gvi.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6avg",
+      "filename": "6avg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6avg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4lcc",
+      "filename": "4lcc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4lcc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qiw",
+      "filename": "3qiw.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qiw.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5jhd",
+      "filename": "5jhd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5jhd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2ian",
+      "filename": "2ian.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2ian.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8rj5",
+      "filename": "8rj5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8rj5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7pbc",
+      "filename": "7pbc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7pbc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ryn",
+      "filename": "8ryn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ryn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8yiv",
+      "filename": "8yiv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8yiv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6dfx",
+      "filename": "6dfx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6dfx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1nam",
+      "filename": "1nam.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1nam.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3mv9",
+      "filename": "3mv9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3mv9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2vlk",
+      "filename": "2vlk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2vlk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pue",
+      "filename": "6pue.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pue.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6tmo",
+      "filename": "6tmo.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6tmo.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3t0e",
+      "filename": "3t0e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3t0e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7dzm",
+      "filename": "7dzm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7dzm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6d7g",
+      "filename": "6d7g.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6d7g.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5nme",
+      "filename": "5nme.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5nme.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4prp",
+      "filename": "4prp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4prp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8gvg",
+      "filename": "8gvg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8gvg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3hg1",
+      "filename": "3hg1.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3hg1.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6zkw",
+      "filename": "6zkw.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6zkw.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ndt",
+      "filename": "7ndt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ndt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7jwi",
+      "filename": "7jwi.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7jwi.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8v50",
+      "filename": "8v50.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8v50.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2pxy",
+      "filename": "2pxy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2pxy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qdj",
+      "filename": "3qdj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qdj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5nht",
+      "filename": "5nht.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5nht.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u17",
+      "filename": "5u17.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u17.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8rlt",
+      "filename": "8rlt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8rlt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4l3e",
+      "filename": "4l3e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4l3e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9bu0",
+      "filename": "9bu0.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9bu0.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3mv7",
+      "filename": "3mv7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3mv7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qib",
+      "filename": "3qib.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qib.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4mng",
+      "filename": "4mng.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4mng.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6xp6",
+      "filename": "6xp6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6xp6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8pjg",
+      "filename": "8pjg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8pjg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8d5q",
+      "filename": "8d5q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8d5q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2q",
+      "filename": "7n2q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6u3o",
+      "filename": "6u3o.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6u3o.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mng",
+      "filename": "6mng.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mng.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4gg6",
+      "filename": "4gg6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4gg6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4qrr",
+      "filename": "4qrr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4qrr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u6q",
+      "filename": "5u6q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u6q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9rxm",
+      "filename": "9rxm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9rxm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8rlu",
+      "filename": "8rlu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8rlu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qfj",
+      "filename": "3qfj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qfj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ei5",
+      "filename": "4ei5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ei5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1zgl",
+      "filename": "1zgl.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1zgl.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9o05",
+      "filename": "9o05.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9o05.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vrm",
+      "filename": "6vrm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vrm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1rc3",
+      "filename": "1rc3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1rc3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6w9u",
+      "filename": "6w9u.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6w9u.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pji",
+      "filename": "4pji.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pji.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7byd",
+      "filename": "7byd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7byd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c07",
+      "filename": "5c07.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c07.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bga",
+      "filename": "6bga.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bga.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5wki",
+      "filename": "5wki.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5wki.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7nme",
+      "filename": "7nme.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7nme.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vwk",
+      "filename": "3vwk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vwk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8enh",
+      "filename": "8enh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8enh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2ak4",
+      "filename": "2ak4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2ak4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2p5e",
+      "filename": "2p5e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2p5e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1ypz",
+      "filename": "1ypz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1ypz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2vlr",
+      "filename": "2vlr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2vlr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4qrp",
+      "filename": "4qrp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4qrp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rm4",
+      "filename": "7rm4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rm4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4zak",
+      "filename": "4zak.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4zak.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qdm",
+      "filename": "3qdm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qdm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4may",
+      "filename": "4may.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4may.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7t2c",
+      "filename": "7t2c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7t2c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3c60",
+      "filename": "3c60.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3c60.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt7",
+      "filename": "7zt7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6dfw",
+      "filename": "6dfw.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6dfw.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ww2",
+      "filename": "4ww2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ww2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ufj",
+      "filename": "7ufj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ufj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4nqe",
+      "filename": "4nqe.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4nqe.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4g8g",
+      "filename": "4g8g.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4g8g.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4apq",
+      "filename": "4apq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4apq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3ta3",
+      "filename": "3ta3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3ta3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1qsf",
+      "filename": "1qsf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1qsf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ms8",
+      "filename": "4ms8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ms8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8fjb",
+      "filename": "8fjb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8fjb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pui",
+      "filename": "6pui.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pui.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9c42",
+      "filename": "9c42.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9c42.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9c3e",
+      "filename": "9c3e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9c3e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3quy",
+      "filename": "3quy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3quy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mnn",
+      "filename": "6mnn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mnn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tn0",
+      "filename": "3tn0.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tn0.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y16",
+      "filename": "4y16.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y16.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6py2",
+      "filename": "6py2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6py2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5jzi",
+      "filename": "5jzi.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5jzi.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9nig",
+      "filename": "9nig.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9nig.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3o6f",
+      "filename": "3o6f.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3o6f.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6avf",
+      "filename": "6avf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6avf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rtr",
+      "filename": "7rtr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rtr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt5",
+      "filename": "7zt5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4jfd",
+      "filename": "4jfd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4jfd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3o9w",
+      "filename": "3o9w.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3o9w.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6c09",
+      "filename": "6c09.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6c09.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9wbd",
+      "filename": "9wbd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9wbd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6amu",
+      "filename": "6amu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6amu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4z7u",
+      "filename": "4z7u.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4z7u.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2f54",
+      "filename": "2f54.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2f54.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5ksb",
+      "filename": "5ksb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5ksb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6puh",
+      "filename": "6puh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6puh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qdg",
+      "filename": "3qdg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qdg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjc",
+      "filename": "4pjc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8v51",
+      "filename": "8v51.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8v51.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1ymm",
+      "filename": "1ymm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1ymm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2pye",
+      "filename": "2pye.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2pye.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8rlv",
+      "filename": "8rlv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8rlv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2jcc",
+      "filename": "2jcc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2jcc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3pqy",
+      "filename": "3pqy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3pqy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6zkx",
+      "filename": "6zkx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6zkx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6r0e",
+      "filename": "6r0e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6r0e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4iiq",
+      "filename": "4iiq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4iiq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qiu",
+      "filename": "3qiu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qiu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3ard",
+      "filename": "3ard.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3ard.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9o08",
+      "filename": "9o08.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9o08.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6rsy",
+      "filename": "6rsy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6rsy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt8",
+      "filename": "7zt8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7stf",
+      "filename": "7stf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7stf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9k2r",
+      "filename": "9k2r.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9k2r.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c0b",
+      "filename": "5c0b.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c0b.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8ryo",
+      "filename": "8ryo.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8ryo.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3kps",
+      "filename": "3kps.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3kps.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6cqq",
+      "filename": "6cqq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6cqq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4x6c",
+      "filename": "4x6c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4x6c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1oga",
+      "filename": "1oga.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1oga.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bnl",
+      "filename": "6bnl.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bnl.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3e2h",
+      "filename": "3e2h.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3e2h.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vm9",
+      "filename": "6vm9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vm9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n5c",
+      "filename": "7n5c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n5c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6xqp",
+      "filename": "6xqp.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6xqp.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4z7w",
+      "filename": "4z7w.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4z7w.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4nhu",
+      "filename": "4nhu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4nhu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8gon",
+      "filename": "8gon.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8gon.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9rup",
+      "filename": "9rup.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9rup.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3rzc",
+      "filename": "3rzc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3rzc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4mvb",
+      "filename": "4mvb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4mvb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vqo",
+      "filename": "6vqo.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vqo.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9cgs",
+      "filename": "9cgs.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9cgs.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5eu6",
+      "filename": "5eu6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5eu6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5euo",
+      "filename": "5euo.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5euo.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3sdd",
+      "filename": "3sdd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3sdd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v18",
+      "filename": "6v18.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v18.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5swz",
+      "filename": "5swz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5swz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8dv4",
+      "filename": "8dv4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8dv4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uj9",
+      "filename": "6uj9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uj9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4e41",
+      "filename": "4e41.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4e41.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2wbj",
+      "filename": "2wbj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2wbj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1j8h",
+      "filename": "1j8h.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1j8h.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4lhu",
+      "filename": "4lhu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4lhu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9hlj",
+      "filename": "9hlj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9hlj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3o4l",
+      "filename": "3o4l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3o4l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1mi5",
+      "filename": "1mi5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1mi5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y1a",
+      "filename": "4y1a.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y1a.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rdv",
+      "filename": "7rdv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rdv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6zky",
+      "filename": "6zky.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6zky.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3arg",
+      "filename": "3arg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3arg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y4k",
+      "filename": "4y4k.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y4k.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rk7",
+      "filename": "7rk7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rk7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6rpb",
+      "filename": "6rpb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6rpb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d7i",
+      "filename": "5d7i.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d7i.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9o07",
+      "filename": "9o07.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9o07.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7q9a",
+      "filename": "7q9a.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7q9a.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5m02",
+      "filename": "5m02.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5m02.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4l9l",
+      "filename": "4l9l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4l9l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bj2",
+      "filename": "6bj2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bj2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p46",
+      "filename": "4p46.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p46.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u72",
+      "filename": "5u72.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u72.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d7l",
+      "filename": "5d7l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d7l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3to4",
+      "filename": "3to4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3to4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7tr4",
+      "filename": "7tr4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7tr4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6am5",
+      "filename": "6am5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6am5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4qok",
+      "filename": "4qok.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4qok.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjb",
+      "filename": "4pjb.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjb.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pj9",
+      "filename": "4pj9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pj9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3qeq",
+      "filename": "3qeq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3qeq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3quz",
+      "filename": "3quz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3quz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n2p",
+      "filename": "7n2p.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n2p.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u2v",
+      "filename": "5u2v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u2v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ozg",
+      "filename": "4ozg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ozg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6cqn",
+      "filename": "6cqn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6cqn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4mnq",
+      "filename": "4mnq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4mnq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1fyt",
+      "filename": "1fyt.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1fyt.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vwj",
+      "filename": "3vwj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vwj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vma",
+      "filename": "6vma.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vma.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9eji",
+      "filename": "9eji.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9eji.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n1f",
+      "filename": "7n1f.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n1f.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8es9",
+      "filename": "8es9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8es9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4n5e",
+      "filename": "4n5e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4n5e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7rym",
+      "filename": "7rym.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7rym.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ozf",
+      "filename": "4ozf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ozf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7sg0",
+      "filename": "7sg0.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7sg0.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7sg2",
+      "filename": "7sg2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7sg2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5nmg",
+      "filename": "5nmg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5nmg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n6e",
+      "filename": "7n6e.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n6e.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3c6l",
+      "filename": "3c6l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3c6l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4grl",
+      "filename": "4grl.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4grl.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5sws",
+      "filename": "5sws.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5sws.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5nqk",
+      "filename": "5nqk.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5nqk.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8gom",
+      "filename": "8gom.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8gom.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5wkh",
+      "filename": "5wkh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5wkh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tf7",
+      "filename": "3tf7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tf7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7pbe",
+      "filename": "7pbe.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7pbe.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4h1l",
+      "filename": "4h1l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4h1l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2ypl",
+      "filename": "2ypl.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2ypl.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2p5w",
+      "filename": "2p5w.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2p5w.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mno",
+      "filename": "6mno.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mno.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7nmf",
+      "filename": "7nmf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7nmf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3arf",
+      "filename": "3arf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3arf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7ndq",
+      "filename": "7ndq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7ndq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1qse",
+      "filename": "1qse.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1qse.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7n5p",
+      "filename": "7n5p.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7n5p.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3sjv",
+      "filename": "3sjv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3sjv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7q99",
+      "filename": "7q99.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7q99.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pj5",
+      "filename": "4pj5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pj5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d5m",
+      "filename": "5d5m.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d5m.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6v19",
+      "filename": "6v19.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6v19.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6d78",
+      "filename": "6d78.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6d78.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8cx4",
+      "filename": "8cx4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8cx4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ozh",
+      "filename": "4ozh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ozh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5u1r",
+      "filename": "5u1r.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5u1r.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c0c",
+      "filename": "5c0c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c0c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9gv7",
+      "filename": "9gv7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9gv7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4jff",
+      "filename": "4jff.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4jff.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9j4u",
+      "filename": "9j4u.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9j4u.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt3",
+      "filename": "7zt3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pj7",
+      "filename": "4pj7.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pj7.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ozi",
+      "filename": "4ozi.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ozi.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjh",
+      "filename": "4pjh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3rgv",
+      "filename": "3rgv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3rgv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9cgr",
+      "filename": "9cgr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9cgr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3pl6",
+      "filename": "3pl6.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3pl6.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2ol3",
+      "filename": "2ol3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2ol3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8qfy",
+      "filename": "8qfy.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8qfy.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7pb2",
+      "filename": "7pb2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7pb2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjg",
+      "filename": "4pjg.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjg.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6rpa",
+      "filename": "6rpa.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6rpa.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vxm",
+      "filename": "3vxm.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vxm.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8fja",
+      "filename": "8fja.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8fja.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7sg1",
+      "filename": "7sg1.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7sg1.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6vmx",
+      "filename": "6vmx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6vmx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5til",
+      "filename": "5til.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5til.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4l4v",
+      "filename": "4l4v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4l4v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6rp9",
+      "filename": "6rp9.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6rp9.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2nx5",
+      "filename": "2nx5.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2nx5.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8trl",
+      "filename": "8trl.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8trl.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4y2d",
+      "filename": "4y2d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4y2d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6w9v",
+      "filename": "6w9v.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6w9v.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5xov",
+      "filename": "5xov.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5xov.trunc.fit.pdb"
+    }
+  ],
+  "val": [
+    {
+      "pdb_id": "6pum",
+      "filename": "6pum.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pum.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3gsn",
+      "filename": "3gsn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3gsn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6zkz",
+      "filename": "6zkz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6zkz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1kj2",
+      "filename": "1kj2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1kj2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2z31",
+      "filename": "2z31.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2z31.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7zt4",
+      "filename": "7zt4.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7zt4.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3h9s",
+      "filename": "3h9s.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3h9s.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3tjh",
+      "filename": "3tjh.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3tjh.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4irj",
+      "filename": "4irj.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4irj.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1qrn",
+      "filename": "1qrn.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1qrn.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6mkd",
+      "filename": "6mkd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6mkd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6xco",
+      "filename": "6xco.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6xco.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6puf",
+      "filename": "6puf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6puf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6cql",
+      "filename": "6cql.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6cql.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p2o",
+      "filename": "4p2o.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p2o.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5isz",
+      "filename": "5isz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5isz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3d39",
+      "filename": "3d39.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3d39.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3vxu",
+      "filename": "3vxu.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3vxu.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8v4z",
+      "filename": "8v4z.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8v4z.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5bs0",
+      "filename": "5bs0.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5bs0.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4ftv",
+      "filename": "4ftv.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4ftv.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3sdc",
+      "filename": "3sdc.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3sdc.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8i5c",
+      "filename": "8i5c.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8i5c.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7phr",
+      "filename": "7phr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7phr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6l9l",
+      "filename": "6l9l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6l9l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pul",
+      "filename": "6pul.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pul.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6cqr",
+      "filename": "6cqr.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6cqr.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3rtq",
+      "filename": "3rtq.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3rtq.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6uk2",
+      "filename": "6uk2.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6uk2.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6g9q",
+      "filename": "6g9q.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6g9q.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6w51",
+      "filename": "6w51.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6w51.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5nmf",
+      "filename": "5nmf.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5nmf.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4jry",
+      "filename": "4jry.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4jry.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4p23",
+      "filename": "4p23.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4p23.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6tro",
+      "filename": "6tro.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6tro.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3are",
+      "filename": "3are.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3are.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9btx",
+      "filename": "9btx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9btx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5e9d",
+      "filename": "5e9d.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5e9d.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "3mv8",
+      "filename": "3mv8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/3mv8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4lcw",
+      "filename": "4lcw.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4lcw.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4irs",
+      "filename": "4irs.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4irs.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "2e7l",
+      "filename": "2e7l.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/2e7l.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5d7j",
+      "filename": "5d7j.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5d7j.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6bj3",
+      "filename": "6bj3.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6bj3.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7bh8",
+      "filename": "7bh8.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7bh8.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "6pug",
+      "filename": "6pug.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/6pug.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "8vcx",
+      "filename": "8vcx.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/8vcx.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "4pjd",
+      "filename": "4pjd.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/4pjd.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "7r80",
+      "filename": "7r80.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/7r80.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "9btz",
+      "filename": "9btz.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/9btz.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "5c09",
+      "filename": "5c09.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/5c09.trunc.fit.pdb"
+    },
+    {
+      "pdb_id": "1fo0",
+      "filename": "1fo0.trunc.fit.pdb",
+      "rel_path": "raw/TCR_complexes/1fo0.trunc.fit.pdb"
+    }
+  ],
+  "test": []
+}

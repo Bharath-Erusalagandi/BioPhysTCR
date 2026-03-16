@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Model checkpoints (large files)
+checkpoints/*.pt
+checkpoints/*.pth
+*.pt
+*.pth
+
+# Data files
+data/raw/
+data/processed/
+*.csv
+*.tsv
+
+# Large pre-trained model files
+TRAP-main/*.pth
+SageTCR-main/*.pt
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Local large archives and generated clinical artifacts
+ImmuneCODE-Repertoires-*.tgz
+data/processed_clinical/
+
+# Results plots (can regenerate)
+results/*.png
+results/*.pdf
+
+# Temporary files
+*.tmp
+*.log

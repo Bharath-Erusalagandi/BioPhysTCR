@@ -1,0 +1,138 @@
+{
+  "clinical_validation": {
+    "dataset": "ImmuneCODE v002.2",
+    "description": "External COVID-19 cohort validation (72 subjects)",
+    "n_subjects": 72,
+    "n_unique_cdr3": 1389,
+    "n_pairs": 17280,
+    "n_covid_epitopes": 6,
+    "n_control_epitopes": 6
+  },
+  "overall_metrics": {
+    "auroc": 0.9035079223465363,
+    "aupr": 0.9063233802927075,
+    "accuracy": 0.8199074074074074,
+    "f1_score": 0.819405756731662,
+    "mcc": 0.639824688728792,
+    "optimal_threshold": 0.5491855297563771
+  },
+  "statistical_tests": {
+    "mann_whitney_u_statistic": 67446505.0,
+    "mann_whitney_p_value": 0.0,
+    "cohens_d_effect_size": 1.8590325656581552,
+    "covid_mean_score": 0.6889027282084726,
+    "control_mean_score": 0.41481018675109715
+  },
+  "ppv_at_top_k": {
+    "100": 1.0,
+    "200": 1.0,
+    "500": 0.996,
+    "1000": 0.994,
+    "2000": 0.9865,
+    "5000": 0.935
+  },
+  "per_epitope": {
+    "YLQPRTFLL": {
+      "mean_score": 0.71776856631896,
+      "std_score": 0.15039559117426274,
+      "median_score": 0.7210216259857305,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Spike"
+    },
+    "RLQSLQTYV": {
+      "mean_score": 0.68457760965915,
+      "std_score": 0.1478402125902218,
+      "median_score": 0.6847286313066032,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Spike"
+    },
+    "KLPDDFTGCV": {
+      "mean_score": 0.6619650868305516,
+      "std_score": 0.15021664959620948,
+      "median_score": 0.6613895331017039,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Spike"
+    },
+    "NYNYLYRLF": {
+      "mean_score": 0.6880024646340512,
+      "std_score": 0.14884066647113242,
+      "median_score": 0.6947828448557676,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Spike"
+    },
+    "QYIKWPWYI": {
+      "mean_score": 0.6736886851779009,
+      "std_score": 0.14823467225527082,
+      "median_score": 0.672764551149273,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Spike"
+    },
+    "SPRWYFYYL": {
+      "mean_score": 0.7074139566302222,
+      "std_score": 0.15031174718336882,
+      "median_score": 0.7108987168403107,
+      "is_covid": true,
+      "n_pairs": 1440,
+      "protein": "Nucleocapsid"
+    },
+    "GILGFVFTL": {
+      "mean_score": 0.43947018486190603,
+      "std_score": 0.14706989336298085,
+      "median_score": 0.4366081425736898,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "Influenza A"
+    },
+    "FMYSDFHFI": {
+      "mean_score": 0.4267073573905042,
+      "std_score": 0.1468786805705588,
+      "median_score": 0.42694922375590316,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "Influenza A"
+    },
+    "NLVPMVATV": {
+      "mean_score": 0.42927741947675835,
+      "std_score": 0.13672346685328016,
+      "median_score": 0.42857748580146715,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "CMV"
+    },
+    "GLCTLVAML": {
+      "mean_score": 0.4082174291970366,
+      "std_score": 0.14376327309879136,
+      "median_score": 0.40710808151572386,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "EBV"
+    },
+    "ELAGIGILTV": {
+      "mean_score": 0.3990952824510853,
+      "std_score": 0.1445870958726663,
+      "median_score": 0.3997934187245025,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "Cancer/Self"
+    },
+    "IVTDFSVIK": {
+      "mean_score": 0.3860934471292924,
+      "std_score": 0.13991960632292164,
+      "median_score": 0.3907544190080237,
+      "is_covid": false,
+      "n_pairs": 1440,
+      "pathogen": "Ebola"
+    }
+  },
+  "per_subject_auroc": {
+    "mean": 0.9076398533950617,
+    "std": 0.04382459606136308,
+    "median": 0.9110416666666666,
+    "subjects_above_0.8": 70
+  }
+}

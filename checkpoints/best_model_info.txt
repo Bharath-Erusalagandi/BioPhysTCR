@@ -1,0 +1,19 @@
+# Best Model Checkpoint
+
+**Epoch**: 17  
+**Validation AUC**: 0.9500  
+**Validation AUPR**: 0.9378  
+**Training Time**: 2044.7 seconds  
+
+**Model Configuration**:
+- Sequence Encoder: Pre-trained (dim=200)
+- Structure Encoder: Pre-trained (dim=512)
+- Fusion Dim: 256
+- Projection Dim: 128
+
+**Saved**: 2026-01-31 22:05:12 UTC  
+**File Size**: ~487 MB (state dict + optimizer + config)
+
+---
+
+*Note: Full checkpoint file (`best_model.pt`) is ~487MB and contains model weights, optimizer state, and training config. Run `scripts/evaluate_model.py` to reproduce evaluation metrics.*

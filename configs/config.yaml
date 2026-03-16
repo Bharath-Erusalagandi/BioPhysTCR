@@ -1,0 +1,88 @@
+# GARSEF Configuration
+
+# Model Architecture
+model:
+  # Sequence encoder
+  sequence:
+    input_dim: 1280  # ESM2 embedding size
+    hidden_dim: 256
+    dropout: 0.2
+  
+  # Structure encoder (GraphSAGE)
+  structure:
+    input_dim: 446   # SaProt embedding size
+    hidden_dim: 256
+    num_layers: 3
+    dropout: 0.2
+  
+  # Physicochemical encoder
+  physicochemical:
+    input_dim: 8     # APBS + SASA + B-factor + hydrophobicity + charge + hbond
+    hidden_dim: 64
+    dropout: 0.2
+  
+  # Fusion
+  fusion:
+    hidden_dim: 256
+    dropout: 0.3
+
+# Training
+training:
+  # General
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  
+  # Contrastive learning
+  contrastive:
+    temperature: 0.07
+    weight: 0.5      # λ1
+  
+  # Binary classification
+  binary:
+    weight: 1.0      # λ2
+    pos_weight: 1.0  # For class imbalance
+  
+  # Optimizer
+  optimizer: adam
+  scheduler: cosine
+  warmup_epochs: 5
+  
+  # Early stopping
+  patience: 15
+  min_delta: 0.001
+
+# Data
+data:
+  # Paths (relative to project root)
+  raw_dir: data/raw
+  processed_dir: data/processed
+  splits_dir: data/splits
+  
+  # Processing
+  interface_cutoff: 10.0  # Angstroms
+  max_sequence_length: 30
+  
+  # Augmentation
+  use_augmentation: true
+  rotation_noise: 0.1
+
+# Evaluation
+evaluation:
+  metrics:
+    - auc
+    - aupr
+    - mcc
+    - macro_f1
+
+# Hardware
+device: cuda
+num_workers: 4
+pin_memory: true
+
+# Logging
+logging:
+  use_wandb: true
+  project_name: garsef
+  save_every: 10
