@@ -1,17 +1,4 @@
-"""
-Training loop for GARSEF model.
-
-Implements alternating contrastive + binary training strategy:
-1. Contrastive phase: Train on positive pairs to align embeddings
-2. Binary phase: Train on all pairs for classification
-
-Features:
-- Early stopping with patience
-- Learning rate scheduling
-- Gradient clipping
-- Checkpoint saving/loading
-- Logging (optional WandB integration)
-"""
+"""Training loop for BioPhysTCR model."""
 
 import os
 import time
@@ -27,13 +14,13 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import numpy as np
 
-from .losses import GARSEFLoss
+from .losses import BioPhysTCRLoss
 from .metrics import RunningMetrics, MetricsCalculator, print_metrics
 
 
 @dataclass
 class TrainerConfig:
-    """Configuration for GARSEF trainer."""
+    """Configuration for BioPhysTCR trainer."""
 
     epochs: int = 100
     learning_rate: float = 1e-4
@@ -61,15 +48,11 @@ class TrainerConfig:
     num_workers: int = 4
 
     use_wandb: bool = False
-    project_name: str = 'garsef'
+    project_name: str = 'biophystcr'
 
 
 class EarlyStopping:
-    """
-    Early stopping to prevent overfitting.
-
-    Monitors validation metric and stops if no improvement.
-    """
+    """Early stopping to prevent overfitting."""
 
     def __init__(
         self,
@@ -78,13 +61,7 @@ class EarlyStopping:
         mode: str = 'min',
         verbose: bool = True
     ):
-        """
-        Args:
-            patience: Number of epochs to wait
-            min_delta: Minimum change to qualify as improvement
-            mode: 'min' (loss) or 'max' (accuracy/AUC)
-            verbose: Print early stopping messages
-        """
+        """Args:"""
         self.patience = patience
         self.min_delta = min_delta
         self.mode = mode
@@ -96,16 +73,7 @@ class EarlyStopping:
         self.best_epoch = 0
 
     def __call__(self, score: float, epoch: int) -> bool:
-        """
-        Check if training should stop.
-
-        Args:
-            score: Current validation metric
-            epoch: Current epoch number
-
-        Returns:
-            True if training should stop
-        """
+        """Check if training should stop."""
         if self.mode == 'min':
             score = -score
 
@@ -126,25 +94,15 @@ class EarlyStopping:
         return self.early_stop
 
 
-class GARSEFTrainer:
-    """
-    Trainer for GARSEF model.
-
-    Implements an alternating training strategy:
-    1. Contrastive learning phase (positive pairs only)
-    2. Binary classification phase (all pairs)
-    """
+class BioPhysTCRTrainer:
+    """Trainer for BioPhysTCR model."""
 
     def __init__(
         self,
         model: nn.Module,
         config: Optional[TrainerConfig] = None
     ):
-        """
-        Args:
-            model: GARSEF model instance
-            config: Training configuration
-        """
+        """Args:"""
         if config is None:
             config = TrainerConfig()
 
@@ -156,7 +114,7 @@ class GARSEFTrainer:
         )
         self.model.to(self.device)
 
-        self.criterion = GARSEFLoss(
+        self.criterion = BioPhysTCRLoss(
             contrastive_weight=config.contrastive_weight,
             binary_weight=config.binary_weight,
             temperature=config.temperature,
@@ -244,15 +202,7 @@ class GARSEFTrainer:
         self,
         positive_loader: DataLoader
     ) -> Dict[str, float]:
-        """
-        Train one epoch with contrastive learning (positive pairs only).
-
-        Args:
-            positive_loader: DataLoader with only positive binding pairs
-
-        Returns:
-            Dict with training metrics
-        """
+        """Train one epoch with contrastive learning (positive pairs only)."""
         self.model.train()
         total_loss = 0.0
         num_batches = 0
@@ -287,15 +237,7 @@ class GARSEFTrainer:
         self,
         train_loader: DataLoader
     ) -> Dict[str, float]:
-        """
-        Train one epoch with binary classification (all pairs).
-
-        Args:
-            train_loader: DataLoader with all pairs (positive and negative)
-
-        Returns:
-            Dict with training metrics
-        """
+        """Train one epoch with binary classification (all pairs)."""
         self.model.train()
         running_metrics = RunningMetrics()
 
@@ -330,15 +272,7 @@ class GARSEFTrainer:
         self,
         train_loader: DataLoader
     ) -> Dict[str, float]:
-        """
-        Train one epoch with combined loss (contrastive + binary).
-
-        Args:
-            train_loader: DataLoader with all pairs
-
-        Returns:
-            Dict with training metrics
-        """
+        """Train one epoch with combined loss (contrastive + binary)."""
         self.model.train()
         running_metrics = RunningMetrics()
         total_contrastive = 0.0
@@ -386,15 +320,7 @@ class GARSEFTrainer:
         self,
         val_loader: DataLoader
     ) -> Dict[str, float]:
-        """
-        Evaluate model on validation set.
-
-        Args:
-            val_loader: Validation DataLoader
-
-        Returns:
-            Dict with evaluation metrics
-        """
+        """Evaluate model on validation set."""
         self.model.eval()
         running_metrics = RunningMetrics()
 
@@ -421,19 +347,7 @@ class GARSEFTrainer:
         positive_loader: Optional[DataLoader] = None,
         alternating: bool = True
     ) -> Dict[str, List[float]]:
-        """
-        Full training loop.
-
-        Args:
-            train_loader: Training DataLoader (all pairs)
-            val_loader: Validation DataLoader
-            positive_loader: Optional DataLoader with positive pairs only
-                            (for alternating training)
-            alternating: Whether to use alternating training strategy
-
-        Returns:
-            Training history
-        """
+        """Full training loop."""
         num_training_steps = len(train_loader) * self.config.epochs
         self._create_scheduler(num_training_steps)
 
@@ -555,27 +469,15 @@ class GARSEFTrainer:
         print(f"Loaded checkpoint from epoch {checkpoint['epoch']}")
 
 
-def train_garsef(
+def train_biophystcr(
     model: nn.Module,
     train_loader: DataLoader,
     val_loader: DataLoader,
     config: Optional[TrainerConfig] = None,
     positive_loader: Optional[DataLoader] = None
 ) -> Tuple[nn.Module, Dict]:
-    """
-    Convenience function to train GARSEF model.
-
-    Args:
-        model: GARSEF model
-        train_loader: Training DataLoader
-        val_loader: Validation DataLoader
-        config: Training configuration
-        positive_loader: Optional positive-only DataLoader
-
-    Returns:
-        Trained model and training history
-    """
-    trainer = GARSEFTrainer(model, config)
+    """Convenience function to train BioPhysTCR model."""
+    trainer = BioPhysTCRTrainer(model, config)
 
     history = trainer.train(
         train_loader,
@@ -589,7 +491,7 @@ def train_garsef(
 
 __all__ = [
     'TrainerConfig',
-    'GARSEFTrainer',
+    'BioPhysTCRTrainer',
     'EarlyStopping',
-    'train_garsef',
+    'train_biophystcr',
 ]

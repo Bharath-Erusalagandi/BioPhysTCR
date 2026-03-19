@@ -1,10 +1,4 @@
-"""
-SaProt Embedding Extractor for GARSEF
-
-Extracts structure-aware protein embeddings using SaProt-650M.
-Requires foldseek for structure sequence generation.
-Outputs 446-dimensional embeddings per residue.
-"""
+"""SaProt Embedding Extractor for BioPhysTCR"""
 
 import torch
 import numpy as np
@@ -24,12 +18,7 @@ class FoldseekRunner:
     """Wrapper for foldseek structure sequence extraction."""
 
     def __init__(self, foldseek_path: str = "foldseek"):
-        """
-        Initialize foldseek runner.
-
-        Args:
-            foldseek_path: Path to foldseek binary (or just 'foldseek' if in PATH)
-        """
+        """Initialize foldseek runner."""
         self.foldseek_path = foldseek_path
         self._verify_foldseek()
 
@@ -52,16 +41,7 @@ class FoldseekRunner:
         pdb_path: str,
         chain: Optional[str] = None,
     ) -> Dict[str, Tuple[str, str, str]]:
-        """
-        Get structure sequence from PDB file using foldseek.
-
-        Args:
-            pdb_path: Path to PDB file
-            chain: Optional specific chain to extract
-
-        Returns:
-            Dictionary mapping chain_id to (aa_seq, struc_seq, combined_seq)
-        """
+        """Get structure sequence from PDB file using foldseek."""
         with tempfile.TemporaryDirectory() as tmpdir:
             db_path = os.path.join(tmpdir, "db")
 
@@ -100,15 +80,7 @@ class SaProtExtractor:
         device: Optional[str] = None,
         contact_threshold: float = 8.0,
     ):
-        """
-        Initialize SaProt extractor.
-
-        Args:
-            model_path: HuggingFace model path or local path to SaProt
-            foldseek_path: Path to foldseek binary
-            device: Device to run on (auto-detect if None)
-            contact_threshold: Distance threshold for residue contacts (Angstroms)
-        """
+        """Initialize SaProt extractor."""
         self.model_path = model_path
         self.contact_threshold = contact_threshold
 
@@ -130,16 +102,7 @@ class SaProtExtractor:
         print("SaProt model loaded successfully")
 
     def _get_combined_seq_simple(self, aa_sequence: str) -> str:
-        """
-        Generate combined sequence without foldseek (fallback).
-        Uses a default structure token 'd' for each residue.
-
-        Args:
-            aa_sequence: Amino acid sequence
-
-        Returns:
-            Combined sequence with default structure tokens
-        """
+        """Generate combined sequence without foldseek (fallback)."""
         return ''.join([f"{aa}d" for aa in aa_sequence])
 
     @torch.no_grad()
@@ -150,18 +113,7 @@ class SaProtExtractor:
         pdb_path: Optional[str] = None,
         chain_id: Optional[str] = None,
     ) -> np.ndarray:
-        """
-        Extract SaProt embeddings from sequence.
-
-        Args:
-            sequence: Amino acid sequence
-            use_structure: Whether to use structural information
-            pdb_path: Path to PDB file (required if use_structure=True)
-            chain_id: Chain ID to extract (required if use_structure=True)
-
-        Returns:
-            Embedding array of shape (seq_len, 446)
-        """
+        """Extract SaProt embeddings from sequence."""
         if use_structure and pdb_path:
             parsed = self.foldseek.get_struc_seq(pdb_path, chain_id)
             if chain_id and chain_id in parsed:
@@ -190,17 +142,7 @@ class SaProtExtractor:
         chain_id: str,
         interface_pdb: Optional[str] = None,
     ) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Extract SaProt embeddings and adjacency matrix from PDB.
-
-        Args:
-            pdb_path: Path to full-length PDB file
-            chain_id: Chain ID to extract
-            interface_pdb: Optional interface PDB for filtering residues
-
-        Returns:
-            Tuple of (embeddings, adjacency_matrix)
-        """
+        """Extract SaProt embeddings and adjacency matrix from PDB."""
         parsed = self.foldseek.get_struc_seq(pdb_path, chain_id)
 
         if chain_id in parsed:
@@ -312,19 +254,7 @@ class SaProtExtractor:
         rec_chain: str = "D",
         lig_chain: str = "C",
     ) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Extract features for TCR-pMHC complex.
-
-        Args:
-            complex_pdb: Path to full complex PDB
-            rec_interface_pdb: Path to receptor (TCR) interface PDB
-            lig_interface_pdb: Path to ligand (pMHC) interface PDB
-            rec_chain: Receptor chain ID
-            lig_chain: Ligand chain ID
-
-        Returns:
-            Tuple of (node_features, adjacency_matrix)
-        """
+        """Extract features for TCR-pMHC complex."""
         rec_emb, rec_adj = self.extract_from_pdb(
             complex_pdb, rec_chain, rec_interface_pdb
         )

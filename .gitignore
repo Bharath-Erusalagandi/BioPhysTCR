@@ -19,8 +19,8 @@ data/processed/
 *.tsv
 
 # Large pre-trained model files
-TRAP-main/*.pth
-SageTCR-main/*.pt
+pretrained_weights/sequence_base/*.pth
+pretrained_weights/structure_base/*.pt
 
 # OS files
 .DS_Store

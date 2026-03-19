@@ -1,15 +1,4 @@
-"""
-Loss functions for GARSEF training.
-
-Implements:
-1. InfoNCE contrastive loss (CLIP-style)
-2. Focal loss for binary classification (handles class imbalance)
-3. Combined loss with configurable weights
-
-Reference:
-- Contrastive learning approaches for TCR-pMHC binding
-- Focal Loss (Lin et al., 2017): Addressing class imbalance
-"""
+"""Loss functions for BioPhysTCR training."""
 
 import torch
 import torch.nn as nn
@@ -18,21 +7,10 @@ from typing import Dict, Optional, Tuple
 
 
 class InfoNCELoss(nn.Module):
-    """
-    InfoNCE (Noise Contrastive Estimation) loss.
-
-    Used to align TCR and pMHC representations in a shared embedding space.
-    Maximizes similarity of matching pairs while minimizing similarity
-    of non-matching pairs within a batch.
-
-    This is the same contrastive loss used in CLIP and other multi-modal models.
-    """
+    """InfoNCE (Noise Contrastive Estimation) loss."""
 
     def __init__(self, temperature: float = 0.07):
-        """
-        Args:
-            temperature: Temperature scaling for softmax
-        """
+        """Args:"""
         super().__init__()
         self.temperature = temperature
 
@@ -42,17 +20,7 @@ class InfoNCELoss(nn.Module):
         pmhc_emb: torch.Tensor,
         temperature: Optional[float] = None
     ) -> torch.Tensor:
-        """
-        Compute InfoNCE loss.
-
-        Args:
-            tcr_emb: Normalized TCR embeddings [batch_size, embed_dim]
-            pmhc_emb: Normalized pMHC embeddings [batch_size, embed_dim]
-            temperature: Optional temperature override
-
-        Returns:
-            Scalar loss value
-        """
+        """Compute InfoNCE loss."""
         if temperature is None:
             temperature = self.temperature
 
@@ -68,9 +36,7 @@ class InfoNCELoss(nn.Module):
 
 
 class ContrastiveLoss(nn.Module):
-    """
-    Alternative contrastive loss with hard negative mining.
-    """
+    """Alternative contrastive loss with hard negative mining."""
 
     def __init__(
         self,
@@ -87,17 +53,7 @@ class ContrastiveLoss(nn.Module):
         pmhc_emb: torch.Tensor,
         labels: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Compute contrastive loss with explicit labels.
-
-        Args:
-            tcr_emb: TCR embeddings [batch_size, embed_dim]
-            pmhc_emb: pMHC embeddings [batch_size, embed_dim]
-            labels: Binary labels [batch_size] (1 = binding, 0 = non-binding)
-
-        Returns:
-            Scalar loss value
-        """
+        """Compute contrastive loss with explicit labels."""
         similarity = F.cosine_similarity(tcr_emb, pmhc_emb)
 
         pos_mask = labels == 1
@@ -111,19 +67,7 @@ class ContrastiveLoss(nn.Module):
 
 
 class FocalLoss(nn.Module):
-    """
-    Focal Loss for handling class imbalance.
-
-    Focuses learning on hard examples by down-weighting
-    well-classified examples.
-
-    From: "Focal Loss for Dense Object Detection" (Lin et al., 2017)
-    Effective for TCR-pMHC binding prediction.
-
-    L_focal = -alpha * (1 - p_t)^gamma * log(p_t)
-
-    where p_t = p if y=1 else 1-p
-    """
+    """Focal Loss for handling class imbalance."""
 
     def __init__(
         self,
@@ -131,12 +75,7 @@ class FocalLoss(nn.Module):
         gamma: float = 2.0,
         reduction: str = 'mean'
     ):
-        """
-        Args:
-            alpha: Weighting factor for positive class (use alpha/(1+alpha) ratio)
-            gamma: Focusing parameter (higher = more focus on hard examples)
-            reduction: 'none', 'mean', or 'sum'
-        """
+        """Args:"""
         super().__init__()
         self.alpha = alpha
         self.gamma = gamma
@@ -147,14 +86,7 @@ class FocalLoss(nn.Module):
         inputs: torch.Tensor,
         targets: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            inputs: Predicted logits [batch_size] or [batch_size, 1]
-            targets: Binary labels [batch_size] or [batch_size, 1]
-
-        Returns:
-            Focal loss value
-        """
+        """Args:"""
         inputs = inputs.view(-1)
         targets = targets.view(-1).float()
 
@@ -176,11 +108,7 @@ class FocalLoss(nn.Module):
 
 
 class BinaryLoss(nn.Module):
-    """
-    Binary classification loss with optional class weighting.
-
-    Supports both standard BCE and Focal loss.
-    """
+    """Binary classification loss with optional class weighting."""
 
     def __init__(
         self,
@@ -189,13 +117,7 @@ class BinaryLoss(nn.Module):
         focal_alpha: float = 0.25,
         focal_gamma: float = 2.0
     ):
-        """
-        Args:
-            loss_type: 'bce' or 'focal'
-            pos_weight: Weight for positive class (for BCE)
-            focal_alpha: Alpha parameter for Focal loss
-            focal_gamma: Gamma parameter for Focal loss
-        """
+        """Args:"""
         super().__init__()
         self.loss_type = loss_type
 
@@ -216,29 +138,12 @@ class BinaryLoss(nn.Module):
         logits: torch.Tensor,
         labels: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            logits: Predicted logits [batch_size, 1] or [batch_size]
-            labels: Binary labels [batch_size]
-
-        Returns:
-            Binary classification loss
-        """
+        """Args:"""
         return self.loss_fn(logits.squeeze(-1), labels.float())
 
 
-class GARSEFLoss(nn.Module):
-    """
-    Combined loss for GARSEF training.
-
-    L_total = lambda_1 * L_contrastive + lambda_2 * L_binary
-
-    Using an alternating training strategy, this loss
-    can be used in different modes:
-    - 'contrastive': Only contrastive loss (for positive pairs)
-    - 'binary': Only binary loss (for all pairs with labels)
-    - 'combined': Both losses together
-    """
+class BioPhysTCRLoss(nn.Module):
+    """Combined loss for BioPhysTCR training."""
 
     def __init__(
         self,
@@ -248,14 +153,7 @@ class GARSEFLoss(nn.Module):
         focal_alpha: float = 0.25,
         focal_gamma: float = 2.0
     ):
-        """
-        Args:
-            contrastive_weight: Weight for contrastive loss (lambda_1)
-            binary_weight: Weight for binary loss (lambda_2)
-            temperature: Temperature for InfoNCE
-            focal_alpha: Alpha for Focal loss
-            focal_gamma: Gamma for Focal loss
-        """
+        """Args:"""
         super().__init__()
 
         self.contrastive_weight = contrastive_weight
@@ -270,20 +168,7 @@ class GARSEFLoss(nn.Module):
         labels: torch.Tensor,
         mode: str = 'combined'
     ) -> Dict[str, torch.Tensor]:
-        """
-        Compute GARSEF loss.
-
-        Args:
-            outputs: Model outputs containing:
-                - tcr_proj: TCR contrastive projection
-                - pmhc_proj: pMHC contrastive projection
-                - binding_logits: Binary prediction logits
-            labels: Binary binding labels [batch_size]
-            mode: 'contrastive', 'binary', or 'combined'
-
-        Returns:
-            Dict with 'loss' (total), 'contrastive_loss', 'binary_loss'
-        """
+        """Compute BioPhysTCR loss."""
         loss_dict = {}
 
         if mode in ['contrastive', 'combined']:
@@ -327,17 +212,10 @@ class GARSEFLoss(nn.Module):
 
 
 class LabelSmoothingBCE(nn.Module):
-    """
-    Binary Cross Entropy with label smoothing.
-
-    Helps prevent overconfident predictions and improves generalization.
-    """
+    """Binary Cross Entropy with label smoothing."""
 
     def __init__(self, smoothing: float = 0.1):
-        """
-        Args:
-            smoothing: Label smoothing factor (0 = no smoothing)
-        """
+        """Args:"""
         super().__init__()
         self.smoothing = smoothing
 
@@ -346,14 +224,7 @@ class LabelSmoothingBCE(nn.Module):
         logits: torch.Tensor,
         labels: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            logits: Predicted logits [batch_size]
-            labels: Binary labels [batch_size]
-
-        Returns:
-            Smoothed BCE loss
-        """
+        """Args:"""
         labels = labels.float()
 
         labels = labels * (1 - self.smoothing) + 0.5 * self.smoothing
@@ -366,17 +237,7 @@ def compute_accuracy(
     labels: torch.Tensor,
     threshold: float = 0.5
 ) -> torch.Tensor:
-    """
-    Compute binary classification accuracy.
-
-    Args:
-        logits: Predicted logits [batch_size]
-        labels: Binary labels [batch_size]
-        threshold: Classification threshold
-
-    Returns:
-        Accuracy as a tensor
-    """
+    """Compute binary classification accuracy."""
     preds = (torch.sigmoid(logits) > threshold).float()
     return (preds == labels.float()).float().mean()
 
@@ -386,7 +247,7 @@ __all__ = [
     'ContrastiveLoss',
     'FocalLoss',
     'BinaryLoss',
-    'GARSEFLoss',
+    'BioPhysTCRLoss',
     'LabelSmoothingBCE',
     'compute_accuracy',
 ]

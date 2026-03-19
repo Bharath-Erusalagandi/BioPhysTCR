@@ -1,16 +1,9 @@
-"""
-GNN Encoder for GARSEF model.
-
-GraphSAGE + LSTM + Self-Attention architecture for structure encoding
-for learning structural representations of TCR-pMHC interfaces.
-
-Multi-layer graph neural network for TCR-pMHC structure analysis
-"""
+"""GNN Encoder for BioPhysTCR model."""
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, GraphNorm, global_max_pool
+from torch_geometric.nn import SAGEConv as GNNConv, GraphNorm, global_max_pool
 from torch_geometric.utils import to_dense_batch
 from torch.nn.utils.rnn import pack_padded_sequence, pad_packed_sequence
 from typing import Tuple, Optional
@@ -38,12 +31,8 @@ class EmbeddingLayer(nn.Module):
         return x
 
 
-class GraphSAGELayers(nn.Module):
-    """
-    3-layer GraphSAGE for graph representation learning.
-
-    Uses mean aggregation and GraphNorm for stable training.
-    """
+class GraphConvLayers(nn.Module):
+    """3-layer Graph Neural Network for graph representation learning."""
 
     def __init__(
         self,
@@ -59,11 +48,11 @@ class GraphSAGELayers(nn.Module):
         self.norms = nn.ModuleList()
         self.dropout = dropout
 
-        self.convs.append(SAGEConv(input_dim, hidden_dim, project=True, aggr='mean'))
+        self.convs.append(GNNConv(input_dim, hidden_dim, project=True, aggr='mean'))
         self.norms.append(GraphNorm(hidden_dim))
 
         for _ in range(num_layers - 1):
-            self.convs.append(SAGEConv(hidden_dim, hidden_dim, project=True, aggr='mean'))
+            self.convs.append(GNNConv(hidden_dim, hidden_dim, project=True, aggr='mean'))
             self.norms.append(GraphNorm(hidden_dim))
 
     def forward(
@@ -72,15 +61,7 @@ class GraphSAGELayers(nn.Module):
         edge_index: torch.Tensor,
         batch: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            x: Node features [num_nodes, input_dim]
-            edge_index: Graph connectivity [2, num_edges]
-            batch: Batch assignment [num_nodes]
-
-        Returns:
-            Node embeddings [num_nodes, hidden_dim]
-        """
+        """Args:"""
         for i in range(self.num_layers):
             x = self.convs[i](x, edge_index)
             x = F.relu(x)
@@ -91,11 +72,7 @@ class GraphSAGELayers(nn.Module):
 
 
 class LSTMLayer(nn.Module):
-    """
-    Bidirectional LSTM for capturing sequential/spatial patterns.
-
-    Processes graph nodes as a sequence to capture global information.
-    """
+    """Bidirectional LSTM for capturing sequential/spatial patterns."""
 
     def __init__(
         self,
@@ -124,15 +101,7 @@ class LSTMLayer(nn.Module):
         x: torch.Tensor,
         batch: torch.Tensor
     ) -> Tuple[torch.Tensor, Tuple[torch.Tensor, torch.Tensor]]:
-        """
-        Args:
-            x: Node features [num_nodes, input_dim]
-            batch: Batch assignment [num_nodes]
-
-        Returns:
-            Node embeddings [num_nodes, hidden_dim]
-            Hidden states (h, c)
-        """
+        """Args:"""
         x_dense, mask = to_dense_batch(x, batch)
 
         lengths = torch.bincount(batch).cpu()
@@ -153,9 +122,7 @@ class LSTMLayer(nn.Module):
 
 
 class SelfAttentionLayer(nn.Module):
-    """
-    Multi-head self-attention for capturing node interactions.
-    """
+    """Multi-head self-attention for capturing node interactions."""
 
     def __init__(
         self,
@@ -178,15 +145,7 @@ class SelfAttentionLayer(nn.Module):
         x: torch.Tensor,
         batch: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Args:
-            x: Node features [num_nodes, input_dim]
-            batch: Batch assignment [num_nodes]
-
-        Returns:
-            Node embeddings [num_nodes, input_dim]
-            Attention weights [batch_size, num_heads, seq_len, seq_len]
-        """
+        """Args:"""
         x_dense, mask = to_dense_batch(x, batch)
 
         attn_output, attn_weights = self.attention(
@@ -204,19 +163,7 @@ class SelfAttentionLayer(nn.Module):
 
 
 class GNNEncoder(nn.Module):
-    """
-    Complete GNN encoder: GraphSAGE + LSTM + Self-Attention.
-
-    This architecture learns structural
-    representations of protein interfaces.
-
-    Architecture:
-        1. Embedding layer to project input features
-        2. 3-layer GraphSAGE for local neighborhood aggregation
-        3. Bidirectional LSTM for global sequence patterns
-        4. Self-attention for capturing interactions
-        5. Global max pooling for graph-level representation
-    """
+    """Complete GNN encoder: Graph Neural Network + LSTM + Self-Attention."""
 
     def __init__(
         self,
@@ -233,7 +180,7 @@ class GNNEncoder(nn.Module):
 
         self.embedding = EmbeddingLayer(input_dim, hidden_dim, dropout)
 
-        self.gnn = GraphSAGELayers(
+        self.gnn = GraphConvLayers(
             hidden_dim, hidden_dim, num_gnn_layers, dropout
         )
 
@@ -251,16 +198,7 @@ class GNNEncoder(nn.Module):
         edge_index: torch.Tensor,
         batch: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Args:
-            x: Node features [num_nodes, input_dim]
-            edge_index: Graph connectivity [2, num_edges]
-            batch: Batch assignment [num_nodes]
-
-        Returns:
-            Graph embeddings [batch_size, hidden_dim]
-            Attention weights [batch_size, num_heads, seq_len, seq_len]
-        """
+        """Args:"""
         x = self.embedding(x)
 
         x = self.gnn(x, edge_index, batch)
@@ -277,12 +215,7 @@ class GNNEncoder(nn.Module):
 
 
 class DualGNNEncoder(nn.Module):
-    """
-    Dual-level GNN encoder for processing both residue and atom graphs.
-
-    Includes cross-attention for information exchange between levels,
-    using a bi-level graph architecture.
-    """
+    """Dual-level GNN encoder for processing both residue and atom graphs."""
 
     def __init__(
         self,
@@ -336,18 +269,7 @@ class DualGNNEncoder(nn.Module):
         atom_edge_index: torch.Tensor,
         atom_batch: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        """
-        Process both residue and atom graphs with optional cross-attention.
-
-        Args:
-            res_x, res_edge_index, res_batch: Residue graph data
-            atom_x, atom_edge_index, atom_batch: Atom graph data
-
-        Returns:
-            Combined graph embedding [batch_size, hidden_dim]
-            Residue attention weights
-            Atom attention weights
-        """
+        """Process both residue and atom graphs with optional cross-attention."""
         res_emb, res_attn = self.residue_encoder(res_x, res_edge_index, res_batch)
         atom_emb, atom_attn = self.atom_encoder(atom_x, atom_edge_index, atom_batch)
 
@@ -374,7 +296,7 @@ class DualGNNEncoder(nn.Module):
 __all__ = [
     'GNNEncoder',
     'DualGNNEncoder',
-    'GraphSAGELayers',
+    'GraphConvLayers',
     'LSTMLayer',
     'SelfAttentionLayer',
     'EmbeddingLayer',

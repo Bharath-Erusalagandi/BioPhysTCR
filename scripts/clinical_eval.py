@@ -17,8 +17,8 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(PROJECT_DIR / "src"))
 
-from models import GARSEF, GARSEFConfig
-from utils import GARSEFDataset, collate_garsef
+from models import BioPhysTCR, BioPhysTCRConfig
+from utils import BioPhysTCRDataset, collate_biophystcr
 
 def load_config(config_path):
     import yaml
@@ -27,7 +27,7 @@ def load_config(config_path):
 
 def load_model(checkpoint_path, config, device='cuda'):
     print(f"Loading model from {checkpoint_path}...")
-    model_config = GARSEFConfig(
+    model_config = BioPhysTCRConfig(
         esm2_dim=config['model']['sequence']['input_dim'],
         sequence_hidden_dim=config['model']['sequence']['hidden_dim'],
         saprot_dim=config['model']['structure']['input_dim'],
@@ -41,7 +41,7 @@ def load_model(checkpoint_path, config, device='cuda'):
         temperature=config['training']['contrastive']['temperature'],
     )
     
-    model = GARSEF(model_config)
+    model = BioPhysTCR(model_config)
     checkpoint = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
     model.to(device)
@@ -93,8 +93,8 @@ def main():
     model = load_model(args.checkpoint, config, device)
     
     # Load Data
-    dataset = GARSEFDataset(args.data_file, args.features_dir)
-    loader = DataLoader(dataset, batch_size=32, collate_fn=collate_garsef, shuffle=False)
+    dataset = BioPhysTCRDataset(args.data_file, args.features_dir)
+    loader = DataLoader(dataset, batch_size=32, collate_fn=collate_biophystcr, shuffle=False)
     
     # Inference
     y_pred, y_true, metadata = evaluate(model, loader, device)
@@ -105,8 +105,8 @@ def main():
     results_df['label'] = y_true # 1=COVID_Target, 0=Control
     
     # Group names
-    # Our prep script used 'group' column but GARSEFDataset might not pass it in metadata if not configured?
-    # Wait, GARSEFDataset code:
+    # Our prep script used 'group' column but BioPhysTCRDataset might not pass it in metadata if not configured?
+    # Wait, BioPhysTCRDataset code:
     # 'metadata': {'pdb_id': pdb_id, 'cdr3': cdr3_seq, 'epitope': epitope_seq}
     # It does NOT pass all columns.
     # We need to merge back with original CSV or infer from label.

@@ -1,15 +1,4 @@
-"""
-Evaluation metrics for GARSEF model.
-
-Implements standard metrics for TCR-pMHC binding prediction:
-- AUC (Area Under ROC Curve)
-- AUPR (Area Under Precision-Recall Curve)
-- MCC (Matthews Correlation Coefficient)
-- Macro-F1 Score
-- Precision@k, Recall@k (recommender system metrics)
-
-These metrics follow standard evaluation protocols for TCR-pMHC binding prediction.
-"""
+"""Evaluation metrics for BioPhysTCR model."""
 
 import numpy as np
 import torch
@@ -32,16 +21,7 @@ def compute_auc(
     y_true: np.ndarray,
     y_pred: np.ndarray
 ) -> float:
-    """
-    Compute Area Under ROC Curve.
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-
-    Returns:
-        AUC score (0.5 if undefined)
-    """
+    """Compute Area Under ROC Curve."""
     try:
         return roc_auc_score(y_true, y_pred)
     except ValueError:
@@ -52,18 +32,7 @@ def compute_aupr(
     y_true: np.ndarray,
     y_pred: np.ndarray
 ) -> float:
-    """
-    Compute Area Under Precision-Recall Curve.
-
-    Better than AUC for imbalanced datasets.
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-
-    Returns:
-        AUPR score
-    """
+    """Compute Area Under Precision-Recall Curve."""
     try:
         precision, recall, _ = precision_recall_curve(y_true, y_pred)
         return auc(recall, precision)
@@ -76,20 +45,7 @@ def compute_mcc(
     y_pred: np.ndarray,
     threshold: float = 0.5
 ) -> float:
-    """
-    Compute Matthews Correlation Coefficient.
-
-    MCC is balanced even for imbalanced datasets.
-    Range: [-1, 1], 0 = random, 1 = perfect, -1 = inverse
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-        threshold: Classification threshold
-
-    Returns:
-        MCC score
-    """
+    """Compute Matthews Correlation Coefficient."""
     y_pred_binary = (y_pred >= threshold).astype(int)
     return matthews_corrcoef(y_true, y_pred_binary)
 
@@ -100,18 +56,7 @@ def compute_f1(
     threshold: float = 0.5,
     average: str = 'macro'
 ) -> float:
-    """
-    Compute F1 score.
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-        threshold: Classification threshold
-        average: 'macro', 'micro', 'weighted', or 'binary'
-
-    Returns:
-        F1 score
-    """
+    """Compute F1 score."""
     y_pred_binary = (y_pred >= threshold).astype(int)
     return f1_score(y_true, y_pred_binary, average=average, zero_division=0)
 
@@ -121,19 +66,7 @@ def compute_precision_at_k(
     y_pred: np.ndarray,
     k: int = 1
 ) -> float:
-    """
-    Compute Precision@k (recommender system metric).
-
-    For each epitope, how many of top-k predictions are correct?
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-        k: Number of top predictions to consider
-
-    Returns:
-        Precision@k
-    """
+    """Compute Precision@k (recommender system metric)."""
     top_k_indices = np.argsort(y_pred)[-k:]
 
     correct = y_true[top_k_indices].sum()
@@ -145,19 +78,7 @@ def compute_recall_at_k(
     y_pred: np.ndarray,
     k: int = 1
 ) -> float:
-    """
-    Compute Recall@k (recommender system metric).
-
-    Of all positive samples, how many are in top-k predictions?
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-        k: Number of top predictions to consider
-
-    Returns:
-        Recall@k (0 if no positive samples)
-    """
+    """Compute Recall@k (recommender system metric)."""
     top_k_indices = np.argsort(y_pred)[-k:]
 
     total_positive = y_true.sum()
@@ -169,17 +90,10 @@ def compute_recall_at_k(
 
 
 class MetricsCalculator:
-    """
-    Calculate all evaluation metrics for GARSEF.
-
-    Supports both overall and per-epitope metrics.
-    """
+    """Calculate all evaluation metrics for BioPhysTCR."""
 
     def __init__(self, threshold: float = 0.5):
-        """
-        Args:
-            threshold: Classification threshold for binary metrics
-        """
+        """Args:"""
         self.threshold = threshold
 
     def compute_all(
@@ -187,16 +101,7 @@ class MetricsCalculator:
         y_true: np.ndarray,
         y_pred: np.ndarray
     ) -> Dict[str, float]:
-        """
-        Compute all standard metrics.
-
-        Args:
-            y_true: Binary labels [N]
-            y_pred: Predicted probabilities [N]
-
-        Returns:
-            Dict with all metrics
-        """
+        """Compute all standard metrics."""
         metrics = {
             'auc': compute_auc(y_true, y_pred),
             'aupr': compute_aupr(y_true, y_pred),
@@ -225,19 +130,7 @@ class MetricsCalculator:
         y_pred: np.ndarray,
         epitope_ids: List[str]
     ) -> Dict[str, Dict[str, float]]:
-        """
-        Compute metrics per epitope.
-
-        Following TRAP's evaluation protocol.
-
-        Args:
-            y_true: Binary labels [N]
-            y_pred: Predicted probabilities [N]
-            epitope_ids: Epitope identifier for each sample [N]
-
-        Returns:
-            Dict mapping epitope_id -> metrics dict
-        """
+        """Compute metrics per epitope."""
         epitope_groups = defaultdict(lambda: {'true': [], 'pred': []})
 
         for true, pred, epi in zip(y_true, y_pred, epitope_ids):
@@ -268,15 +161,7 @@ class MetricsCalculator:
         self,
         per_epitope_metrics: Dict[str, Dict[str, float]]
     ) -> Dict[str, float]:
-        """
-        Aggregate per-epitope metrics to overall metrics.
-
-        Args:
-            per_epitope_metrics: Output from compute_per_epitope
-
-        Returns:
-            Aggregated metrics (mean and std)
-        """
+        """Aggregate per-epitope metrics to overall metrics."""
         if not per_epitope_metrics:
             return {}
 
@@ -293,9 +178,7 @@ class MetricsCalculator:
 
 
 class RunningMetrics:
-    """
-    Track metrics during training across batches.
-    """
+    """Track metrics during training across batches."""
 
     def __init__(self):
         self.reset()
@@ -312,14 +195,7 @@ class RunningMetrics:
         labels: torch.Tensor,
         loss: Optional[float] = None
     ):
-        """
-        Update with batch predictions.
-
-        Args:
-            predictions: Model predictions [batch_size]
-            labels: True labels [batch_size]
-            loss: Optional batch loss value
-        """
+        """Update with batch predictions."""
         if isinstance(predictions, torch.Tensor):
             predictions = predictions.detach().cpu().numpy()
         if isinstance(labels, torch.Tensor):
@@ -332,12 +208,7 @@ class RunningMetrics:
             self.losses.append(loss)
 
     def compute(self) -> Dict[str, float]:
-        """
-        Compute metrics from accumulated predictions.
-
-        Returns:
-            Dict with all metrics
-        """
+        """Compute metrics from accumulated predictions."""
         y_true = np.array(self.labels)
         y_pred = np.array(self.predictions)
 
@@ -351,16 +222,7 @@ class RunningMetrics:
 
 
 def print_metrics(metrics: Dict[str, float], prefix: str = '') -> str:
-    """
-    Format metrics for printing.
-
-    Args:
-        metrics: Dict of metric name -> value
-        prefix: Optional prefix for each line
-
-    Returns:
-        Formatted string
-    """
+    """Format metrics for printing."""
     lines = []
 
     priority = ['loss', 'auc', 'aupr', 'mcc', 'macro_f1']
@@ -381,17 +243,7 @@ def compute_confusion_matrix_stats(
     y_pred: np.ndarray,
     threshold: float = 0.5
 ) -> Dict[str, int]:
-    """
-    Compute confusion matrix statistics.
-
-    Args:
-        y_true: Binary labels [N]
-        y_pred: Predicted probabilities [N]
-        threshold: Classification threshold
-
-    Returns:
-        Dict with TP, TN, FP, FN counts
-    """
+    """Compute confusion matrix statistics."""
     y_pred_binary = (y_pred >= threshold).astype(int)
     tn, fp, fn, tp = confusion_matrix(y_true, y_pred_binary).ravel()
 

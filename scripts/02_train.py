@@ -1,21 +1,4 @@
-"""
-GARSEF Training Script (Day 5)
-
-Trains the GARSEF model with alternating contrastive + binary learning.
-
-Usage:
-    python scripts/02_train.py --config configs/config.yaml
-    python scripts/02_train.py --scenario 1  # Random split
-    python scripts/02_train.py --scenario 2  # Unseen epitopes
-    python scripts/02_train.py --debug --epochs 10 --subset 100
-
-Features:
-    - Alternating training (contrastive + binary phases)
-    - Early stopping with validation monitoring
-    - Checkpoint saving/loading
-    - WandB logging (optional)
-    - Multi-GPU support (optional)
-"""
+"""BioPhysTCR Training Script (Day 5)"""
 
 import argparse
 import json
@@ -35,19 +18,19 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(PROJECT_DIR / "src"))
 
-from models import GARSEF, GARSEFConfig, create_garsef
+from models import BioPhysTCR, BioPhysTCRConfig, create_biophystcr
 from training import (
-    GARSEFTrainer,
+    BioPhysTCRTrainer,
     TrainerConfig,
-    train_garsef,
+    train_biophystcr,
     MetricsCalculator,
     print_metrics
 )
 from utils import (
-    GARSEFDataset,
+    BioPhysTCRDataset,
     PositiveOnlyDataset,
     create_data_loaders,
-    collate_garsef
+    collate_biophystcr
 )
 
 
@@ -57,9 +40,9 @@ def load_config(config_path: Path) -> Dict:
         return yaml.safe_load(f)
 
 
-def create_model(config: Dict) -> GARSEF:
-    """Create GARSEF model from config."""
-    model_config = GARSEFConfig(
+def create_model(config: Dict) -> BioPhysTCR:
+    """Create BioPhysTCR model from config."""
+    model_config = BioPhysTCRConfig(
         esm2_dim=config['model']['sequence']['input_dim'],
         sequence_hidden_dim=config['model']['sequence']['hidden_dim'],
         saprot_dim=config['model']['structure']['input_dim'],
@@ -72,7 +55,7 @@ def create_model(config: Dict) -> GARSEF:
         fusion_dropout=config['model']['fusion']['dropout'],
         temperature=config['training']['contrastive']['temperature'],
     )
-    return GARSEF(model_config)
+    return BioPhysTCR(model_config)
 
 
 def create_trainer_config(config: Dict, args: argparse.Namespace) -> TrainerConfig:
@@ -101,18 +84,7 @@ def prepare_datasets(
     scenario: int = 1,
     subset_size: Optional[int] = None
 ) -> tuple:
-    """
-    Prepare train/val/test datasets.
-
-    Args:
-        features_dir: Directory with processed features
-        splits_dir: Directory with split definitions
-        scenario: 1 = random split, 2 = unseen epitopes
-        subset_size: Optional subset for debugging
-
-    Returns:
-        train_csv, val_csv, test_csv paths
-    """
+    """Prepare train/val/test datasets."""
     if scenario == 1:
         train_csv = splits_dir / "train_random.csv"
         val_csv = splits_dir / "val_random.csv"
@@ -146,7 +118,7 @@ def create_placeholder_csv(csv_path: Path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Train GARSEF model")
+    parser = argparse.ArgumentParser(description="Train BioPhysTCR model")
 
     parser.add_argument('--config', type=str, default='configs/config.yaml',
                         help='Path to config file')
@@ -227,7 +199,7 @@ def main():
         create_positive_loader=args.alternating and not args.combined
     )
 
-    print("\nCreating GARSEF model...")
+    print("\nCreating BioPhysTCR model...")
     model = create_model(config)
 
     num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
@@ -235,7 +207,7 @@ def main():
 
     trainer_config = create_trainer_config(config, args)
 
-    trainer = GARSEFTrainer(model, trainer_config)
+    trainer = BioPhysTCRTrainer(model, trainer_config)
 
     if args.resume:
         print(f"\nResuming from checkpoint: {args.resume}")

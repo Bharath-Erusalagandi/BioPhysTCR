@@ -1,9 +1,4 @@
-"""
-ESM2 Embedding Extractor for GARSEF
-
-Extracts ESM2-650M embeddings for CDR3 and epitope sequences.
-Outputs 1280-dimensional embeddings per sequence.
-"""
+"""ESM2 Embedding Extractor for BioPhysTCR"""
 
 import torch
 import numpy as np
@@ -25,15 +20,7 @@ class ESM2Extractor:
         batch_size: int = 32,
         repr_layer: int = 33,
     ):
-        """
-        Initialize ESM2 extractor.
-
-        Args:
-            model_name: ESM2 model variant to use
-            device: Device to run on (auto-detect if None)
-            batch_size: Batch size for embedding extraction
-            repr_layer: Which layer to extract representations from
-        """
+        """Initialize ESM2 extractor."""
         self.model_name = model_name
         self.batch_size = batch_size
         self.repr_layer = repr_layer
@@ -56,15 +43,7 @@ class ESM2Extractor:
 
     @torch.no_grad()
     def extract_single(self, sequence: str) -> np.ndarray:
-        """
-        Extract embedding for a single sequence.
-
-        Args:
-            sequence: Amino acid sequence
-
-        Returns:
-            Embedding array of shape (seq_len, 1280) or (1280,) for pooled
-        """
+        """Extract embedding for a single sequence."""
         data = [("seq", sequence)]
         batch_labels, batch_strs, batch_tokens = self.batch_converter(data)
         batch_tokens = batch_tokens.to(self.device)
@@ -82,18 +61,7 @@ class ESM2Extractor:
         sequences: List[str],
         pooling: str = "mean"
     ) -> np.ndarray:
-        """
-        Extract embeddings for a batch of sequences.
-
-        Args:
-            sequences: List of amino acid sequences
-            pooling: Pooling method ('mean', 'max', 'cls', or 'none')
-
-        Returns:
-            Array of embeddings. Shape depends on pooling:
-                - 'mean'/'max'/'cls': (num_sequences, 1280)
-                - 'none': List of (seq_len, 1280) arrays
-        """
+        """Extract embeddings for a batch of sequences."""
         data = [(f"seq_{i}", seq) for i, seq in enumerate(sequences)]
         batch_labels, batch_strs, batch_tokens = self.batch_converter(data)
         batch_tokens = batch_tokens.to(self.device)
@@ -126,19 +94,7 @@ class ESM2Extractor:
         pooling: str = "mean",
         save_path: Optional[Path] = None,
     ) -> Dict[str, np.ndarray]:
-        """
-        Extract embeddings for all sequences in a dataframe.
-
-        Args:
-            df: DataFrame with sequence columns
-            cdr3_col: Column name for CDR3 sequences
-            epitope_col: Column name for epitope sequences
-            pooling: Pooling method for variable-length sequences
-            save_path: Optional path to save embeddings
-
-        Returns:
-            Dictionary with 'cdr3' and 'epitope' embedding arrays
-        """
+        """Extract embeddings for all sequences in a dataframe."""
         unique_cdr3 = df[cdr3_col].unique().tolist()
         unique_epitopes = df[epitope_col].unique().tolist()
 
@@ -180,18 +136,7 @@ class ESM2Extractor:
         epitope_col: str = "Epitope",
         pooling: str = "mean",
     ) -> Tuple[np.ndarray, np.ndarray]:
-        """
-        Extract paired embeddings maintaining row correspondence.
-
-        Args:
-            df: DataFrame with sequence columns
-            cdr3_col: Column name for CDR3 sequences
-            epitope_col: Column name for epitope sequences
-            pooling: Pooling method
-
-        Returns:
-            Tuple of (cdr3_embeddings, epitope_embeddings) arrays
-        """
+        """Extract paired embeddings maintaining row correspondence."""
         embeddings = self.extract_from_dataframe(df, cdr3_col, epitope_col, pooling)
 
         cdr3_emb = np.stack([embeddings["cdr3"][seq] for seq in df[cdr3_col]])

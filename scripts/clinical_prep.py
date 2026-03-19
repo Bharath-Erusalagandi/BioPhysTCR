@@ -38,9 +38,7 @@ def load_metadata(excel_path):
     return df
 
 def identify_covid_cohort(df):
-    """
-    Identify ~72 COVID-19 subjects.
-    """
+    """Identify ~72 COVID-19 subjects."""
     covid_mask = (df['Dataset'] == 'COVID-19-Adaptive-MIRAMatched') | (df['Virus Diseases'] == 'COVID-19 Positive')
     covid_df = df[covid_mask].copy()
     
@@ -55,9 +53,7 @@ def identify_covid_cohort(df):
     return samples
 
 def extract_tcrs(tar_path, samples, max_tcrs=50):
-    """
-    Extract top N abundant TCRs for given samples.
-    """
+    """Extract top N abundant TCRs for given samples."""
     tcrs = [] 
     sample_names = set(samples.keys())
     
@@ -105,11 +101,7 @@ def extract_tcrs(tar_path, samples, max_tcrs=50):
     return tcrs
 
 def create_dataset(tcrs, output_path):
-    """
-    Create pairs:
-    1. TCR + COVID Epitope (Target)
-    2. TCR + Control Epitope (Control)
-    """
+    """Create pairs:"""
     pairs = []
     
     print("Generating pairs...")

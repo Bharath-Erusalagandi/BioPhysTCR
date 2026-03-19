@@ -1,7 +1,4 @@
-"""
-Dataset and DataLoader utilities for BioPhysTCR.
-Loads pre-extracted features and uses pre-processed graph cache for speed.
-"""
+"""Dataset and DataLoader utilities for BioPhysTCR."""
 
 import json
 import pickle
@@ -14,11 +11,8 @@ from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torch_geometric.data import Data, Batch
 
 
-class GARSEFDataset(Dataset):
-    """
-    Dataset for BioPhysTCR TCR-pMHC binding prediction.
-    Loads pre-computed features from biophystcr_features_v2.
-    """
+class BioPhysTCRDataset(Dataset):
+    """Dataset for BioPhysTCR TCR-pMHC binding prediction."""
 
     def __init__(
         self,
@@ -307,8 +301,8 @@ class GARSEFDataset(Dataset):
         return sample
 
 
-def collate_garsef(batch: List[Dict]) -> Dict:
-    """Custom collate function for GARSEF batches."""
+def collate_biophystcr(batch: List[Dict]) -> Dict:
+    """Custom collate function for BioPhysTCR batches."""
     tcr_data = []
     pmhc_data = []
     labels = []
@@ -350,7 +344,7 @@ def collate_garsef(batch: List[Dict]) -> Dict:
 class PositiveOnlyDataset(Dataset):
     """Dataset wrapper returning only positive pairs."""
 
-    def __init__(self, dataset: GARSEFDataset):
+    def __init__(self, dataset: BioPhysTCRDataset):
         self.dataset = dataset
         self.positive_indices = [
             i for i, pair in enumerate(dataset.pairs)
@@ -367,7 +361,7 @@ class PositiveOnlyDataset(Dataset):
 class EpitopeGroupedDataset(Dataset):
     """Dataset grouped by epitope for per-epitope evaluation."""
 
-    def __init__(self, dataset: GARSEFDataset):
+    def __init__(self, dataset: BioPhysTCRDataset):
         self.dataset = dataset
         self.epitope_groups = {}
         for idx, pair in enumerate(dataset.pairs):
@@ -396,19 +390,19 @@ def create_data_loaders(
     num_workers: int = 4,
     create_positive_loader: bool = True
 ) -> Tuple[DataLoader, DataLoader, Optional[DataLoader], Optional[DataLoader]]:
-    """Create DataLoaders for GARSEF training."""
-    train_dataset = GARSEFDataset(train_file, features_dir)
-    val_dataset = GARSEFDataset(val_file, features_dir)
+    """Create DataLoaders for BioPhysTCR training."""
+    train_dataset = BioPhysTCRDataset(train_file, features_dir)
+    val_dataset = BioPhysTCRDataset(val_file, features_dir)
 
     test_loader = None
     if test_file and Path(test_file).exists():
-        test_dataset = GARSEFDataset(test_file, features_dir)
+        test_dataset = BioPhysTCRDataset(test_file, features_dir)
         test_loader = DataLoader(
             test_dataset,
             batch_size=batch_size,
             shuffle=False,
             num_workers=num_workers,
-            collate_fn=collate_garsef,
+            collate_fn=collate_biophystcr,
             pin_memory=True
         )
 
@@ -417,7 +411,7 @@ def create_data_loaders(
         batch_size=batch_size,
         shuffle=True,
         num_workers=num_workers,
-        collate_fn=collate_garsef,
+        collate_fn=collate_biophystcr,
         pin_memory=True
     )
 
@@ -426,7 +420,7 @@ def create_data_loaders(
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
-        collate_fn=collate_garsef,
+        collate_fn=collate_biophystcr,
         pin_memory=True
     )
 
@@ -438,14 +432,14 @@ def create_data_loaders(
             batch_size=batch_size,
             shuffle=True,
             num_workers=num_workers,
-            collate_fn=collate_garsef,
+            collate_fn=collate_biophystcr,
             pin_memory=True
         )
 
     return train_loader, val_loader, test_loader, positive_loader
 
 
-def create_balanced_sampler(dataset: GARSEFDataset) -> WeightedRandomSampler:
+def create_balanced_sampler(dataset: BioPhysTCRDataset) -> WeightedRandomSampler:
     """Create weighted sampler for balanced batch sampling."""
     labels = [p.get('label', p.get('binding', 1)) for p in dataset.pairs]
     labels = np.array(labels, dtype=int)

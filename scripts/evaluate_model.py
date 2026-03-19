@@ -1,9 +1,4 @@
-"""
-Evaluation script for GARSEF model.
-
-Evaluates trained model on validation and zero-shot test sets.
-Generates metrics and saves results to results/ directory.
-"""
+"""Evaluation script for BioPhysTCR model."""
 
 import torch
 import json
@@ -14,8 +9,8 @@ from sklearn.metrics import precision_score, recall_score, f1_score, confusion_m
 import sys
 sys.path.append('..')
 
-from src.models.garsef import GARSEF, GARSEFConfig
-from src.data.dataset import GARSEFDataset
+from src.models.biophystcr import BioPhysTCR, BioPhysTCRConfig
+from src.data.dataset import BioPhysTCRDataset
 from torch.utils.data import DataLoader
 
 
@@ -67,7 +62,7 @@ def main():
     """Main evaluation function."""
     
     # Load config
-    config = GARSEFConfig(
+    config = BioPhysTCRConfig(
         esm2_dim=1280,
         sequence_hidden_dim=200,
         sequence_num_layers=2,
@@ -80,16 +75,16 @@ def main():
     )
     
     # Load model
-    model = GARSEF(config).cuda()
+    model = BioPhysTCR(config).cuda()
     checkpoint = torch.load('checkpoints/best_model.pt', map_location='cuda')
     model.load_state_dict(checkpoint['model_state_dict'])
     
     # Load validation set (standard benchmark)
-    val_dataset = GARSEFDataset('data/processed/val')
+    val_dataset = BioPhysTCRDataset('data/processed/val')
     val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False, num_workers=4)
     
     # Load zero-shot test set (unseen epitopes)
-    zeroshot_dataset = GARSEFDataset('data/processed/test_zeroshot')
+    zeroshot_dataset = BioPhysTCRDataset('data/processed/test_zeroshot')
     zeroshot_loader = DataLoader(zeroshot_dataset, batch_size=32, shuffle=False, num_workers=4)
     
     print("Evaluating on standard validation set...")

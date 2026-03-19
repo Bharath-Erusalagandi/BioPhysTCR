@@ -1,89 +1,108 @@
-# BioPhysTCR: Physics-Informed TCR-pMHC Binding Prediction
+# BioPhysTCR: Physics-Informed Multi-Modal Deep Learning for TCR-pMHC Binding Prediction
 
-A multi-modal deep learning framework for TCR-pMHC binding prediction that integrates:
-- **Sequence information** (via transfer learning from pre-trained sequence models)
-- **3D structural features** (via transfer learning from pre-trained structure models)  
-- **Physicochemical properties** (novel APBS-based electrostatics)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 
-## Performance
+Official repository for **BioPhysTCR**, a multi-modal deep learning framework that integrates sequence information, structural features, and physicochemical properties to predict T-cell receptor (TCR) and peptide-MHC (pMHC) binding affinity. 
 
-| Benchmark | AUC-ROC | AUPR |
-|-----------|---------|------|
-| **Standard (VDJdb)** | **0.9500** | 0.9378 |
-| **Zero-Shot (Unseen Epitopes)** | **0.8420** | 0.8234 |
+This repository contains the code for preparing datasets, extracting multi-modal features, and training our models.
 
-## Quick Start
+---
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
+## Overview
 
-# Extract features (requires PDB files)
-jupyter notebook notebooks/01_data_preparation.ipynb
+Accurate prediction of TCR-pMHC binding is vital for designing targeted immunotherapies. BioPhysTCR (BioPhysTCR architecture) integrates three distinct modalities:
 
-# Train model with transfer learning
-jupyter notebook notebooks/02_transfer_learning.ipynb
+1. **Sequence Encoders** (dim=200): Captures sequence motifs and binding patterns pre-trained on diverse TCR/peptide datasets.
+2. **Structural Encoders** (dim=512): Utilizes graph neural networks to explicitly model 3D geometric complementarity between the TCR and the pMHC.
+3. **Physicochemical Encoders** (dim=64): Computes novel biophysical parameters, including APBS-based electrostatic potentials and surface area binding propensities.
 
-# Evaluate
-python scripts/evaluate_model.py
-```
+Our multi-modal fusion mechanism projects these integrated features via cross-attention into robust, generalized binding predictions.
+
+**Performance Summary:**
+| Benchmark Evaluation | AUC-ROC | AUPR |
+|-------------------|---------|------|
+| Standard Setting (VDJdb) | **0.9500** | 0.9378 |
+| Zero-Shot (Unseen Epitopes) | **0.8420** | 0.8234 |
 
 ## Repository Structure
 
-```
+```text
 BioPhysTCR/
-├── src/                    # Source code
-│   ├── models/            # Model architectures
-│   ├── features/          # Feature extractors
-│   └── training/          # Training utilities
-├── notebooks/             # Jupyter notebooks
-├── scripts/               # Training and evaluation scripts
-├── results/               # Training results and metrics
-├── checkpoints/           # Model checkpoints (gitignored, ~487MB)
-└── data/                  # Data directory (not included)
+├── configs/               # Hyperparameter configurations and YAML files
+├── data/                  # [Not Included] Raw data and pre-computed features
+├── notebooks/             # Tutorials for data preparation and transfer learning
+├── scripts/               # Executable scripts for training and model evaluation
+└── src/
+    ├── features/          # Multi-modal feature extraction logic
+    ├── models/            # Core neural network architectures
+    ├── training/          # Training pipelines and utilities
+    └── utils/             # Helper utilities and data loaders
 ```
 
-## Model Architecture
+## Installation
 
-GARSEF combines three modalities:
+We highly recommend using a virtual environment or `conda` to manage dependencies.
 
-1. **Sequence Encoder** (dim=200)
-   - Pre-trained on large TCR/peptide datasets
-   - Captures CDR3 motifs and binding patterns
+```bash
+git clone https://github.com/YourOrganization/BioPhysTCR.git
+cd BioPhysTCR
 
-2. **Structure Encoder** (dim=512)
-   - Graph neural network on 3D structures
-   - Models geometric complementarity
+# Setup the environment using the provided shell script
+source scripts/setup_env.sh
 
-3. **Physicochemical Encoder** (Novel, dim=64)
-   - APBS electrostatic potential
-   - Surface area and binding propensity
+# Alternatively, install standard dependencies via pip:
+pip install -r requirements.txt
+```
 
-Features are fused via cross-attention and projected to binding predictions.
+## Usage
 
-## Transfer Learning
+### 1. Data Processing and Feature Extraction
+First, generate the necessary representations. Note that this requires structural files (e.g., PDB formats).
 
-We leverage pre-trained encoders for both sequence and structure modalities, fine-tuning them with our novel physicochemical features.
+```bash
+jupyter notebook notebooks/01_data_preparation.ipynb
+```
 
-See `notebooks/02_transfer_learning.ipynb` for weight loading details.
+### 2. Model Training
+Train a new model natively from scratch or employ transfer learning utilizing pre-trained sequence and structure checkpoints:
+
+```bash
+# Fine-tuning via transfer learning
+jupyter notebook notebooks/02_transfer_learning.ipynb
+
+# Command-line training execution
+python scripts/02_train.py --config configs/config.yaml
+```
+
+### 3. Evaluation
+Reproduce the benchmark evaluations provided in the manuscript:
+
+```bash
+python scripts/03_evaluate.py --checkpoint checkpoints/best_model.pt
+```
+
+## Pre-Trained Models
+
+Due to data privacy and patient confidentiality constraints associated with the clinical datasets, pre-trained weights for the fully trained BioPhysTCR models are not publicly released in this repository. Researchers can train models from scratch using the provided architecture and training scripts on publicly available datasets like VDJdb.
 
 ## Citation
 
-If you use this code, please cite:
+If you incorporate this framework or our representations into your research, please cite:
 
 ```bibtex
-@article{biophystcr2026,
+@misc{biophystcr2026,
   title={BioPhysTCR: Physics-Informed Multi-Modal Deep Learning for TCR-pMHC Binding Prediction},
-  author={Your Name et al.},
-  journal={bioRxiv},
-  year={2026}
+  author={Erusalagandi, Bharath},
+  year={2026},
+  howpublished={\url{https://github.com/YourOrganization/BioPhysTCR}}
 }
 ```
 
+## Acknowledgments
+
+We are grateful to the creators of the pre-trained sequence and structural models utilized in this project for their contributions to the open-source structural biology community.
+
 ## License
 
-MIT License (see LICENSE file)
-
-## Contact
-
-For questions or issues, please open a GitHub issue.
+This project is distributed under the MIT License - see the [LICENSE](LICENSE) file for complete details.

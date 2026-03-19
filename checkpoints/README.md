@@ -22,14 +22,14 @@ The checkpoint file contains:
 
 ```python
 import torch
-from src.models.garsef import GARSEF, GARSEFConfig
+from src.models.biophystcr import BioPhysTCR, BioPhysTCRConfig
 
 # Load checkpoint
 checkpoint = torch.load('checkpoints/best_model.pt')
 
 # Create model and load weights
 config = checkpoint['config']
-model = GARSEF(config)
+model = BioPhysTCR(config)
 model.load_state_dict(checkpoint['model_state_dict'])
 ```
 

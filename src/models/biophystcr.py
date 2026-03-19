@@ -1,16 +1,4 @@
-"""
-GARSEF: Graph-Augmented Residue-level Structure-Enhanced Framework
-
-Main model combining:
-- SAGE's GNN architecture for structural representation
-- Contrastive learning for robust generalization
-- Novel physicochemical features for binding specificity
-
-This model predicts TCR-pMHC binding by integrating three modalities:
-1. Sequence features (ESM2 embeddings)
-2. Structural features (GraphSAGE on interface graphs)
-3. Physicochemical features (APBS, SASA, B-factor, etc.)
-"""
+"""BioPhysTCR: Graph-Augmented Residue-level Structure-Enhanced Framework"""
 
 import torch
 import torch.nn as nn
@@ -31,13 +19,13 @@ from .fusion import (
     ContrastiveHead,
     BinaryHead,
     CrossAttentionFusion,
-    GARSEFFusion
+    BioPhysTCRFusion
 )
 
 
 @dataclass
-class GARSEFConfig:
-    """Configuration for GARSEF model."""
+class BioPhysTCRConfig:
+    """Configuration for BioPhysTCR model."""
 
     esm2_dim: int = 1280
     sequence_hidden_dim: int = 256
@@ -63,33 +51,14 @@ class GARSEFConfig:
     temperature: float = 0.07
 
 
-class GARSEF(nn.Module):
-    """
-    GARSEF: Graph-Augmented Residue-level Structure-Enhanced Framework
+class BioPhysTCR(nn.Module):
+    """BioPhysTCR: Graph-Augmented Residue-level Structure-Enhanced Framework"""
 
-    Architecture:
-    ============
-
-    TCR Input:
-        Sequence (ESM2) ─────────┐
-        Structure (SaProt/GNN) ──┼──> TCR Fusion ──> TCR Embedding
-        Physicochemical ─────────┘
-
-    pMHC Input:
-        Sequence (ESM2) ─────────┐
-        Structure (SaProt/GNN) ──┼──> pMHC Fusion ──> pMHC Embedding
-        Physicochemical ─────────┘
-
-    Outputs:
-        TCR Emb + pMHC Emb ──> Cross-Attention ──> Contrastive Head (InfoNCE)
-                                              └──> Binary Head (BCE/Focal)
-    """
-
-    def __init__(self, config: Optional[GARSEFConfig] = None):
+    def __init__(self, config: Optional[BioPhysTCRConfig] = None):
         super().__init__()
 
         if config is None:
-            config = GARSEFConfig()
+            config = BioPhysTCRConfig()
 
         self.config = config
 
@@ -143,7 +112,7 @@ class GARSEF(nn.Module):
             aggregation=config.physchem_aggregation
         )
 
-        self.fusion = GARSEFFusion(
+        self.fusion = BioPhysTCRFusion(
             sequence_dim=config.sequence_hidden_dim,
             structure_dim=config.structure_hidden_dim,
             physchem_dim=config.physchem_hidden_dim,
@@ -167,14 +136,7 @@ class GARSEF(nn.Module):
         alpha_emb: Optional[torch.Tensor] = None,
         beta_emb: Optional[torch.Tensor] = None
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        """
-        Encode TCR into multi-modal representation.
-
-        Returns:
-            sequence_emb: [batch_size, sequence_hidden_dim]
-            structure_emb: [batch_size, structure_hidden_dim]
-            physchem_emb: [batch_size, physchem_hidden_dim]
-        """
+        """Encode TCR into multi-modal representation."""
         if alpha_emb is not None or beta_emb is not None:
             seq_emb = self.tcr_sequence_encoder(
                 alpha_emb=alpha_emb,
@@ -205,14 +167,7 @@ class GARSEF(nn.Module):
         sequence_mask: Optional[torch.Tensor] = None,
         physchem_mask: Optional[torch.Tensor] = None
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        """
-        Encode pMHC into multi-modal representation.
-
-        Returns:
-            sequence_emb: [batch_size, sequence_hidden_dim]
-            structure_emb: [batch_size, structure_hidden_dim]
-            physchem_emb: [batch_size, physchem_hidden_dim]
-        """
+        """Encode pMHC into multi-modal representation."""
         seq_emb, _ = self.pmhc_sequence_encoder.epitope_encoder(
             sequence_emb, sequence_mask
         )
@@ -230,30 +185,7 @@ class GARSEF(nn.Module):
         tcr_data: Dict[str, torch.Tensor],
         pmhc_data: Dict[str, torch.Tensor]
     ) -> Dict[str, torch.Tensor]:
-        """
-        Forward pass through GARSEF.
-
-        Args:
-            tcr_data: Dict containing:
-                - sequence_emb: ESM2 embeddings [batch, seq_len, 1280] or [batch, 1280]
-                - structure_x: Node features [num_nodes, saprot_dim]
-                - structure_edge_index: Graph edges [2, num_edges]
-                - structure_batch: Batch assignment [num_nodes]
-                - physchem_features: Physicochemical features [batch, num_res, 8]
-                - sequence_mask (optional): [batch, seq_len]
-                - physchem_mask (optional): [batch, num_res]
-
-            pmhc_data: Same structure as tcr_data
-
-        Returns:
-            Dict containing:
-                - tcr_emb: TCR fused embedding [batch, fusion_dim]
-                - pmhc_emb: pMHC fused embedding [batch, fusion_dim]
-                - tcr_proj: TCR contrastive projection [batch, projection_dim]
-                - pmhc_proj: pMHC contrastive projection [batch, projection_dim]
-                - binding_logits: Binding prediction logits [batch, 1]
-                - similarity: Cosine similarity matrix [batch, batch]
-        """
+        """Forward pass through BioPhysTCR."""
         tcr_seq, tcr_struct, tcr_phys = self.encode_tcr(
             sequence_emb=tcr_data['sequence_emb'],
             structure_x=tcr_data['structure_x'],
@@ -294,16 +226,7 @@ class GARSEF(nn.Module):
         return outputs
 
     def predict(self, tcr_data: Dict, pmhc_data: Dict) -> torch.Tensor:
-        """
-        Get binding probability prediction.
-
-        Args:
-            tcr_data: TCR input data
-            pmhc_data: pMHC input data
-
-        Returns:
-            Binding probabilities [batch_size]
-        """
+        """Get binding probability prediction."""
         outputs = self.forward(tcr_data, pmhc_data)
         return torch.sigmoid(outputs['binding_logits']).squeeze(-1)
 
@@ -312,27 +235,19 @@ class GARSEF(nn.Module):
         tcr_data: Dict,
         pmhc_data: Dict
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Get fused embeddings for TCR and pMHC.
-
-        Useful for visualization (t-SNE) and downstream tasks.
-        """
+        """Get fused embeddings for TCR and pMHC."""
         outputs = self.forward(tcr_data, pmhc_data)
         return outputs['tcr_emb'], outputs['pmhc_emb']
 
 
-class GARSEFSimple(nn.Module):
-    """
-    Simplified GARSEF model for cases where structural data is limited.
+class BioPhysTCRSimple(nn.Module):
+    """Simplified BioPhysTCR model for cases where structural data is limited."""
 
-    Uses only sequence and physicochemical features (no GNN).
-    """
-
-    def __init__(self, config: Optional[GARSEFConfig] = None):
+    def __init__(self, config: Optional[BioPhysTCRConfig] = None):
         super().__init__()
 
         if config is None:
-            config = GARSEFConfig()
+            config = BioPhysTCRConfig()
 
         self.config = config
 
@@ -400,18 +315,7 @@ class GARSEFSimple(nn.Module):
         pmhc_sequence: torch.Tensor,
         pmhc_physchem: torch.Tensor
     ) -> Dict[str, torch.Tensor]:
-        """
-        Forward pass for simplified model.
-
-        Args:
-            tcr_sequence: TCR ESM2 embeddings [batch, 1280]
-            tcr_physchem: TCR physicochemical features [batch, 8]
-            pmhc_sequence: pMHC ESM2 embeddings [batch, 1280]
-            pmhc_physchem: pMHC physicochemical features [batch, 8]
-
-        Returns:
-            Model outputs dict
-        """
+        """Forward pass for simplified model."""
         tcr_seq = self.tcr_sequence_encoder(tcr_sequence)
         tcr_phys = self.tcr_physchem_encoder(tcr_physchem)
 
@@ -438,29 +342,20 @@ class GARSEFSimple(nn.Module):
         }
 
 
-def create_garsef(
-    config: Optional[GARSEFConfig] = None,
+def create_biophystcr(
+    config: Optional[BioPhysTCRConfig] = None,
     use_structure: bool = True
 ) -> nn.Module:
-    """
-    Factory function to create GARSEF model.
-
-    Args:
-        config: Model configuration
-        use_structure: Whether to use structural (GNN) features
-
-    Returns:
-        GARSEF or GARSEFSimple model
-    """
+    """Factory function to create BioPhysTCR model."""
     if use_structure:
-        return GARSEF(config)
+        return BioPhysTCR(config)
     else:
-        return GARSEFSimple(config)
+        return BioPhysTCRSimple(config)
 
 
 __all__ = [
-    'GARSEF',
-    'GARSEFSimple',
-    'GARSEFConfig',
-    'create_garsef',
+    'BioPhysTCR',
+    'BioPhysTCRSimple',
+    'BioPhysTCRConfig',
+    'create_biophystcr',
 ]

@@ -1,4 +1,4 @@
-# GARSEF Configuration
+# BioPhysTCR Configuration
 
 # Model Architecture
 model:
@@ -8,7 +8,7 @@ model:
     hidden_dim: 256
     dropout: 0.2
   
-  # Structure encoder (GraphSAGE)
+  # Structure encoder (Graph Neural Network)
   structure:
     input_dim: 446   # SaProt embedding size
     hidden_dim: 256
@@ -84,5 +84,5 @@ pin_memory: true
 # Logging
 logging:
   use_wandb: true
-  project_name: garsef
+  project_name: biophystcr
   save_every: 10

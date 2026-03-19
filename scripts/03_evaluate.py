@@ -1,19 +1,4 @@
-"""
-GARSEF Evaluation Script (Day 7)
-
-Evaluates trained GARSEF model on test sets and generates metrics.
-
-Usage:
-    python scripts/03_evaluate.py --checkpoint best_model.pt --scenario 1
-    python scripts/03_evaluate.py --checkpoint best_model.pt --scenario 2
-    python scripts/03_evaluate.py --checkpoint best_model.pt --per_epitope
-
-Features:
-    - Overall metrics (AUC, AUPR, MCC, F1)
-    - Per-epitope metrics
-    - Comparison with baselines
-    - t-SNE visualization of embeddings
-"""
+"""BioPhysTCR Evaluation Script (Day 7)"""
 
 import argparse
 import json
@@ -33,9 +18,9 @@ SCRIPT_DIR = Path(__file__).parent
 PROJECT_DIR = SCRIPT_DIR.parent
 sys.path.insert(0, str(PROJECT_DIR / "src"))
 
-from models import GARSEF, GARSEFConfig
+from models import BioPhysTCR, BioPhysTCRConfig
 from training import MetricsCalculator, print_metrics
-from utils import GARSEFDataset, collate_garsef
+from utils import BioPhysTCRDataset, collate_biophystcr
 
 
 def load_config(config_path: Path) -> Dict:
@@ -44,9 +29,9 @@ def load_config(config_path: Path) -> Dict:
         return yaml.safe_load(f)
 
 
-def load_model(checkpoint_path: Path, config: Dict, device: str = 'cuda') -> GARSEF:
+def load_model(checkpoint_path: Path, config: Dict, device: str = 'cuda') -> BioPhysTCR:
     """Load trained model from checkpoint."""
-    model_config = GARSEFConfig(
+    model_config = BioPhysTCRConfig(
         esm2_dim=config['model']['sequence']['input_dim'],
         sequence_hidden_dim=config['model']['sequence']['hidden_dim'],
         saprot_dim=config['model']['structure']['input_dim'],
@@ -60,7 +45,7 @@ def load_model(checkpoint_path: Path, config: Dict, device: str = 'cuda') -> GAR
         temperature=config['training']['contrastive']['temperature'],
     )
 
-    model = GARSEF(model_config)
+    model = BioPhysTCR(model_config)
 
     checkpoint = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
@@ -74,19 +59,11 @@ def load_model(checkpoint_path: Path, config: Dict, device: str = 'cuda') -> GAR
 
 @torch.no_grad()
 def evaluate_model(
-    model: GARSEF,
+    model: BioPhysTCR,
     dataloader: DataLoader,
     device: str = 'cuda'
 ) -> Tuple[Dict[str, float], np.ndarray, np.ndarray, List]:
-    """
-    Evaluate model and collect predictions.
-
-    Returns:
-        metrics: Dict with evaluation metrics
-        y_true: True labels
-        y_pred: Predicted probabilities
-        metadata: Sample metadata
-    """
+    """Evaluate model and collect predictions."""
     model.eval()
 
     all_preds = []
@@ -119,19 +96,11 @@ def evaluate_model(
 
 @torch.no_grad()
 def get_embeddings(
-    model: GARSEF,
+    model: BioPhysTCR,
     dataloader: DataLoader,
     device: str = 'cuda'
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, List]:
-    """
-    Extract embeddings for visualization.
-
-    Returns:
-        tcr_embeddings: TCR embeddings [N, dim]
-        pmhc_embeddings: pMHC embeddings [N, dim]
-        labels: Binding labels [N]
-        metadata: Sample metadata
-    """
+    """Extract embeddings for visualization."""
     model.eval()
 
     tcr_embs = []
@@ -221,7 +190,7 @@ def generate_tsne_visualization(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate GARSEF model")
+    parser = argparse.ArgumentParser(description="Evaluate BioPhysTCR model")
 
     parser.add_argument('--checkpoint', type=str, required=True,
                         help='Path to model checkpoint')
@@ -280,13 +249,13 @@ def main():
         print(f"Error: Test file not found: {test_csv}")
         return
 
-    test_dataset = GARSEFDataset(test_csv, features_dir)
+    test_dataset = BioPhysTCRDataset(test_csv, features_dir)
     test_loader = DataLoader(
         test_dataset,
         batch_size=args.batch_size,
         shuffle=False,
         num_workers=0,
-        collate_fn=collate_garsef
+        collate_fn=collate_biophystcr
     )
 
     print("\n" + "=" * 50)

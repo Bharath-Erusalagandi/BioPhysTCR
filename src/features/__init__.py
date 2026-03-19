@@ -1,11 +1,4 @@
-"""
-GARSEF Feature Extraction Modules
-
-This package provides feature extraction for:
-- ESM2: Sequence embeddings (1280-dim)
-- SaProt: Structure-aware embeddings (446-dim)
-- Physicochemical: APBS, SASA, B-factors (8-dim per residue)
-"""
+"""BioPhysTCR Feature Extraction Modules"""
 
 from .esm2_extractor import (
     ESM2Extractor,

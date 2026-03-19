@@ -1,27 +1,20 @@
-"""
-GARSEF Utilities Package.
-
-Contains data loading and utility functions:
-- Dataset classes
-- DataLoader creation
-- Collate functions for graph batching
-"""
+"""BioPhysTCR Utilities Package."""
 
 from .data_utils import (
-    GARSEFDataset,
+    BioPhysTCRDataset,
     PositiveOnlyDataset,
     EpitopeGroupedDataset,
-    collate_garsef,
+    collate_biophystcr,
     create_data_loaders,
     create_balanced_sampler,
 )
 
 
 __all__ = [
-    'GARSEFDataset',
+    'BioPhysTCRDataset',
     'PositiveOnlyDataset',
     'EpitopeGroupedDataset',
-    'collate_garsef',
+    'collate_biophystcr',
     'create_data_loaders',
     'create_balanced_sampler',
 ]

@@ -1,6 +1,6 @@
 # Training and Evaluation
 
-This directory contains scripts for training and evaluating the GARSEF model.
+This directory contains scripts for training and evaluating the BioPhysTCR model.
 
 ## Training
 
@@ -11,7 +11,7 @@ To reproduce our training results with transfer learning:
 jupyter notebook notebooks/02_transfer_learning.ipynb
 
 # Option 2: Use Python script (coming soon)
-python scripts/train_garsef.py --config configs/transfer_learning.yaml
+python scripts/train_biophystcr.py --config configs/transfer_learning.yaml
 ```
 
 ## Evaluation

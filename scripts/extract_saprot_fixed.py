@@ -1,7 +1,4 @@
-"""
-Extract real SaProt embeddings - FIXED VERSION
-Properly extracts per-residue 446-dim embeddings from full sequences.
-"""
+"""Extract real SaProt embeddings - FIXED VERSION"""
 
 import os
 import sys
@@ -62,12 +59,7 @@ def extract_saprot_embeddings_direct(
     sequence: str,
     device: str = 'cuda'
 ) -> np.ndarray:
-    """
-    Extract per-residue SaProt embeddings using direct model inference.
-
-    ESM tokenizer: each amino acid = 1 token (for protein sequences)
-    Output shape: [seq_len, 446] (per-residue embeddings)
-    """
+    """Extract per-residue SaProt embeddings using direct model inference."""
     try:
         # Tokenize sequence - ESM tokenizer needs spaces between amino acids!
         # "GSHS" → treated as one token

@@ -1,17 +1,9 @@
-"""
-GARSEF Models Package.
-
-Contains model architectures for TCR-pMHC binding prediction:
-- GNN encoders (GraphSAGE-based)
-- Sequence encoders (ESM2 projections)
-- Multi-modal fusion modules
-- Main GARSEF model
-"""
+"""BioPhysTCR Models Package."""
 
 from .gnn_encoder import (
     GNNEncoder,
     DualGNNEncoder,
-    GraphSAGELayers,
+    GraphConvLayers,
     LSTMLayer,
     SelfAttentionLayer,
     EmbeddingLayer,
@@ -31,21 +23,21 @@ from .fusion import (
     ContrastiveHead,
     BinaryHead,
     CrossAttentionFusion,
-    GARSEFFusion,
+    BioPhysTCRFusion,
 )
 
-from .garsef import (
-    GARSEF,
-    GARSEFSimple,
-    GARSEFConfig,
-    create_garsef,
+from .biophystcr import (
+    BioPhysTCR,
+    BioPhysTCRSimple,
+    BioPhysTCRConfig,
+    create_biophystcr,
 )
 
 
 __all__ = [
     'GNNEncoder',
     'DualGNNEncoder',
-    'GraphSAGELayers',
+    'GraphConvLayers',
     'LSTMLayer',
     'SelfAttentionLayer',
     'EmbeddingLayer',
@@ -59,9 +51,9 @@ __all__ = [
     'ContrastiveHead',
     'BinaryHead',
     'CrossAttentionFusion',
-    'GARSEFFusion',
-    'GARSEF',
-    'GARSEFSimple',
-    'GARSEFConfig',
-    'create_garsef',
+    'BioPhysTCRFusion',
+    'BioPhysTCR',
+    'BioPhysTCRSimple',
+    'BioPhysTCRConfig',
+    'create_biophystcr',
 ]

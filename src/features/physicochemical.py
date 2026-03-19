@@ -1,16 +1,4 @@
-"""
-Physicochemical feature extraction for protein structures.
-
-Extracts 8-dimensional features per residue:
-1. electrostatic - Estimated electrostatic potential
-2. sasa - Solvent accessible surface area
-3. sasa_ratio - Relative SASA (vs theoretical max)
-4. bfactor - B-factor (temperature factor) from PDB
-5. hydrophobicity - Kyte-Doolittle hydrophobicity
-6. charge - Formal charge at pH 7
-7. hbond_donor - H-bond donor capacity
-8. hbond_acceptor - H-bond acceptor capacity
-"""
+"""Physicochemical feature extraction for protein structures."""
 
 import pickle
 from pathlib import Path
@@ -227,12 +215,7 @@ class PhysicochemicalExtractor:
     """Extract physicochemical features from PDB structures."""
 
     def __init__(self, use_apbs: bool = False):
-        """
-        Initialize extractor.
-
-        Args:
-            use_apbs: Whether to use APBS for electrostatics (requires installation)
-        """
+        """Initialize extractor."""
         self.use_apbs = use_apbs
         self.parser = PDBParser(QUIET=True)
 
@@ -241,16 +224,7 @@ class PhysicochemicalExtractor:
         pdb_path: Union[str, Path],
         chain_ids: Optional[List[str]] = None,
     ) -> Optional[Dict]:
-        """
-        Extract physicochemical features from a PDB structure.
-
-        Args:
-            pdb_path: Path to PDB file
-            chain_ids: Chain IDs to process (None = all)
-
-        Returns:
-            Dict with features, residue_ids, feature_names, or None on error
-        """
+        """Extract physicochemical features from a PDB structure."""
         pdb_path = Path(pdb_path)
 
         try:
@@ -319,12 +293,7 @@ class PhysicochemicalExtractor:
         chain_ids: Optional[List[str]] = None,
         show_progress: bool = True,
     ) -> Dict[str, Dict]:
-        """
-        Extract features for multiple structures.
-
-        Returns:
-            Dict mapping pdb_id -> feature dict
-        """
+        """Extract features for multiple structures."""
         from tqdm import tqdm
 
         results = {}
@@ -348,12 +317,7 @@ def normalize_features(
     mean: Optional[np.ndarray] = None,
     std: Optional[np.ndarray] = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """
-    Normalize features to zero mean and unit variance.
-
-    Returns:
-        Tuple of (normalized_features, mean, std)
-    """
+    """Normalize features to zero mean and unit variance."""
     if mean is None:
         mean = features.mean(axis=0)
     if std is None:

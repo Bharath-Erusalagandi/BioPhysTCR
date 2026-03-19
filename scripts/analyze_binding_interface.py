@@ -1,13 +1,4 @@
-"""
-Binding Interface Analysis for Physicochemical Features
-
-Compares physicochemical properties at the TCR-pMHC interface vs non-interface
-regions to identify key interaction patterns.
-
-Usage:
-    python scripts/analyze_binding_interface.py
-    python scripts/analyze_binding_interface.py --distance_cutoff 4.5
-"""
+"""Binding Interface Analysis for Physicochemical Features"""
 
 import argparse
 import pickle
@@ -37,12 +28,7 @@ def identify_interface_residues(
     pmhc_chains: List[str] = ['A', 'B', 'C'],
     distance_cutoff: float = 4.0
 ) -> Tuple[List, List]:
-    """
-    Identify interface residues based on distance cutoff.
-    
-    Returns:
-        Tuple of (interface_residue_ids, non_interface_residue_ids)
-    """
+    """Identify interface residues based on distance cutoff."""
     try:
         from Bio.PDB import PDBParser, NeighborSearch
     except ImportError:
@@ -98,11 +84,7 @@ def load_physicochemical_features(data_dir: Path) -> Dict:
 
 
 def generate_synthetic_interface_data(seed: int = 42) -> Tuple[np.ndarray, np.ndarray]:
-    """
-    Generate synthetic interface vs non-interface data for demonstration.
-    
-    Real usage should load actual PDB structures and compute interfaces.
-    """
+    """Generate synthetic interface vs non-interface data for demonstration."""
     np.random.seed(seed)
     
     n_interface = 150
@@ -135,9 +117,7 @@ def create_comparison_boxplot(
     output_path: str = 'results/interface_comparison_boxplot.png',
     dpi: int = 300
 ):
-    """
-    Create box plot comparing interface vs non-interface features.
-    """
+    """Create box plot comparing interface vs non-interface features."""
     fig, axes = plt.subplots(2, 4, figsize=(16, 8))
     axes = axes.flatten()
     
@@ -211,9 +191,7 @@ def create_feature_radar_plot(
     output_path: str = 'results/interface_radar_plot.png',
     dpi: int = 300
 ):
-    """
-    Create radar plot showing mean feature values for interface vs non-interface.
-    """
+    """Create radar plot showing mean feature values for interface vs non-interface."""
     # Calculate means
     interface_means = interface_features.mean(axis=0)
     non_interface_means = non_interface_features.mean(axis=0)

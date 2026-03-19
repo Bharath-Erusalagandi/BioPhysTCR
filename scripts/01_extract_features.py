@@ -1,15 +1,4 @@
-"""
-GARSEF Feature Extraction Script (Day 2)
-
-Extracts ESM2 and SaProt features for all TCR-pMHC complexes.
-Caches results to BioPhysTCR/data/processed/
-
-Usage:
-    python scripts/01_extract_features.py --config configs/config.yaml
-    python scripts/01_extract_features.py --esm2_only  # Just ESM2 embeddings
-    python scripts/01_extract_features.py --saprot_only  # Just SaProt features
-    python scripts/01_extract_features.py --debug --limit 10  # Test on 10 samples
-"""
+"""BioPhysTCR Feature Extraction Script (Day 2)"""
 
 import argparse
 import json
@@ -68,19 +57,7 @@ def extract_esm2_features(
     pooling: str = "mean",
     device: Optional[str] = None,
 ) -> Dict[str, np.ndarray]:
-    """
-    Extract ESM2 embeddings for all unique sequences.
-
-    Args:
-        sequence_df: DataFrame with CDR3 and Epitope columns
-        output_dir: Directory to save embeddings
-        batch_size: Batch size for extraction
-        pooling: Pooling method ('mean', 'max', 'none')
-        device: Device to use
-
-    Returns:
-        Dictionary with 'cdr3' and 'epitope' embedding dictionaries
-    """
+    """Extract ESM2 embeddings for all unique sequences."""
     output_path = output_dir / "esm2_embeddings.pkl"
 
     if output_path.exists():
@@ -110,21 +87,7 @@ def extract_saprot_features(
     device: Optional[str] = None,
     limit: Optional[int] = None,
 ) -> Dict[str, Dict]:
-    """
-    Extract SaProt features for all structures in splits.
-
-    Args:
-        splits: Dictionary with train/val/test structure lists
-        data_dir: Directory containing raw PDB files
-        output_dir: Directory to save features
-        model_path: Path to SaProt model
-        foldseek_path: Path to foldseek binary
-        device: Device to use
-        limit: Optional limit on number of structures to process
-
-    Returns:
-        Dictionary mapping pdb_id to features
-    """
+    """Extract SaProt features for all structures in splits."""
     saprot_dir = output_dir / "saprot"
     saprot_dir.mkdir(parents=True, exist_ok=True)
 
@@ -217,15 +180,7 @@ def create_combined_dataset(
     sequence_df: pd.DataFrame,
     output_dir: Path,
 ):
-    """
-    Create combined dataset with all features.
-
-    Args:
-        esm2_embeddings: ESM2 embeddings dictionary
-        saprot_features: SaProt features dictionary
-        sequence_df: DataFrame with sequence data
-        output_dir: Directory to save combined dataset
-    """
+    """Create combined dataset with all features."""
     output_path = output_dir / "combined_features.pkl"
 
     combined = {
@@ -252,7 +207,7 @@ def create_combined_dataset(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Extract GARSEF features")
+    parser = argparse.ArgumentParser(description="Extract BioPhysTCR features")
     parser.add_argument(
         "--config",
         type=str,

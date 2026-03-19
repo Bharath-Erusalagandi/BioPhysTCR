@@ -1,18 +1,11 @@
-"""
-GARSEF Training Package.
-
-Contains training utilities:
-- Loss functions (InfoNCE, Focal, Combined)
-- Metrics (AUC, AUPR, MCC, F1)
-- Training loop with alternating phases
-"""
+"""BioPhysTCR Training Package."""
 
 from .losses import (
     InfoNCELoss,
     ContrastiveLoss,
     FocalLoss,
     BinaryLoss,
-    GARSEFLoss,
+    BioPhysTCRLoss,
     LabelSmoothingBCE,
     compute_accuracy,
 )
@@ -32,9 +25,9 @@ from .metrics import (
 
 from .trainer import (
     TrainerConfig,
-    GARSEFTrainer,
+    BioPhysTCRTrainer,
     EarlyStopping,
-    train_garsef,
+    train_biophystcr,
 )
 
 
@@ -43,7 +36,7 @@ __all__ = [
     'ContrastiveLoss',
     'FocalLoss',
     'BinaryLoss',
-    'GARSEFLoss',
+    'BioPhysTCRLoss',
     'LabelSmoothingBCE',
     'compute_accuracy',
     'compute_auc',
@@ -57,7 +50,7 @@ __all__ = [
     'print_metrics',
     'compute_confusion_matrix_stats',
     'TrainerConfig',
-    'GARSEFTrainer',
+    'BioPhysTCRTrainer',
     'EarlyStopping',
-    'train_garsef',
+    'train_biophystcr',
 ]

@@ -1,14 +1,4 @@
-"""
-Multi-modal Fusion module for GARSEF.
-
-Combines sequence, structure, and physicochemical features
-into unified TCR and pMHC representations.
-
-Architecture follows GARSEF plan:
-- Concatenation-based fusion
-- LayerNorm for stability
-- Separate projection heads for contrastive and binary tasks
-"""
+"""Multi-modal Fusion module for BioPhysTCR."""
 
 import torch
 import torch.nn as nn
@@ -17,17 +7,7 @@ from typing import Dict, Optional, Tuple
 
 
 class PhysicochemicalEncoder(nn.Module):
-    """
-    MLP encoder for physicochemical features.
-
-    Processes 8-dimensional per-residue features:
-    - Electrostatic potential
-    - SASA (absolute and relative)
-    - B-factor
-    - Hydrophobicity
-    - Charge
-    - H-bond donor/acceptor capacity
-    """
+    """MLP encoder for physicochemical features."""
 
     def __init__(
         self,
@@ -37,14 +17,7 @@ class PhysicochemicalEncoder(nn.Module):
         dropout: float = 0.2,
         aggregation: str = 'mean'
     ):
-        """
-        Args:
-            input_dim: Number of physicochemical features per residue
-            hidden_dim: Output embedding dimension
-            num_layers: Number of MLP layers
-            dropout: Dropout probability
-            aggregation: How to aggregate residue features ('mean', 'max', 'attention')
-        """
+        """Args:"""
         super().__init__()
 
         self.aggregation = aggregation
@@ -76,15 +49,7 @@ class PhysicochemicalEncoder(nn.Module):
         x: torch.Tensor,
         mask: Optional[torch.Tensor] = None
     ) -> torch.Tensor:
-        """
-        Args:
-            x: Physicochemical features [batch_size, num_residues, input_dim]
-               or [batch_size, input_dim] if already aggregated
-            mask: Valid residue mask [batch_size, num_residues]
-
-        Returns:
-            Encoded features [batch_size, hidden_dim]
-        """
+        """Args:"""
         if x.dim() == 2:
             return self.encoder(x)
 
@@ -118,14 +83,7 @@ class PhysicochemicalEncoder(nn.Module):
 
 
 class MultiModalFusion(nn.Module):
-    """
-    Fuses sequence, structure, and physicochemical modalities.
-
-    GARSEF fusion architecture:
-    1. Concatenate all modality embeddings
-    2. Apply LayerNorm for stability
-    3. MLP projection to unified dimension
-    """
+    """Fuses sequence, structure, and physicochemical modalities."""
 
     def __init__(
         self,
@@ -154,27 +112,14 @@ class MultiModalFusion(nn.Module):
         structure_emb: torch.Tensor,
         physchem_emb: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            sequence_emb: [batch_size, sequence_dim]
-            structure_emb: [batch_size, structure_dim]
-            physchem_emb: [batch_size, physchem_dim]
-
-        Returns:
-            Fused embedding [batch_size, output_dim]
-        """
+        """Args:"""
         combined = torch.cat([sequence_emb, structure_emb, physchem_emb], dim=-1)
 
         return self.fusion(combined)
 
 
 class ContrastiveHead(nn.Module):
-    """
-    Projection head for contrastive learning (InfoNCE loss).
-
-    Projects TCR and pMHC embeddings to a shared space
-    where cosine similarity indicates binding affinity.
-    """
+    """Projection head for contrastive learning (InfoNCE loss)."""
 
     def __init__(
         self,
@@ -193,13 +138,7 @@ class ContrastiveHead(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """
-        Args:
-            x: Input embedding [batch_size, input_dim]
-
-        Returns:
-            Projected embedding [batch_size, projection_dim]
-        """
+        """Args:"""
         projected = self.projection(x)
 
         if self.normalize:
@@ -209,12 +148,7 @@ class ContrastiveHead(nn.Module):
 
 
 class BinaryHead(nn.Module):
-    """
-    Binary classification head for binding prediction.
-
-    Takes concatenated TCR and pMHC embeddings and predicts
-    binding probability.
-    """
+    """Binary classification head for binding prediction."""
 
     def __init__(
         self,
@@ -247,26 +181,14 @@ class BinaryHead(nn.Module):
         tcr_emb: torch.Tensor,
         pmhc_emb: torch.Tensor
     ) -> torch.Tensor:
-        """
-        Args:
-            tcr_emb: TCR embedding [batch_size, tcr_dim]
-            pmhc_emb: pMHC embedding [batch_size, pmhc_dim]
-
-        Returns:
-            Binding logits [batch_size, 1]
-        """
+        """Args:"""
         combined = torch.cat([tcr_emb, pmhc_emb], dim=-1)
 
         return self.classifier(combined)
 
 
 class CrossAttentionFusion(nn.Module):
-    """
-    Cross-attention based fusion between TCR and pMHC.
-
-    Enables learning of interaction-aware representations
-    where each modality attends to the other.
-    """
+    """Cross-attention based fusion between TCR and pMHC."""
 
     def __init__(
         self,
@@ -298,15 +220,7 @@ class CrossAttentionFusion(nn.Module):
         tcr_emb: torch.Tensor,
         pmhc_emb: torch.Tensor
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Args:
-            tcr_emb: TCR embedding [batch_size, embed_dim]
-            pmhc_emb: pMHC embedding [batch_size, embed_dim]
-
-        Returns:
-            Enhanced TCR embedding [batch_size, embed_dim]
-            Enhanced pMHC embedding [batch_size, embed_dim]
-        """
+        """Args:"""
         tcr_q = tcr_emb.unsqueeze(1)
         pmhc_q = pmhc_emb.unsqueeze(1)
 
@@ -323,15 +237,8 @@ class CrossAttentionFusion(nn.Module):
         return tcr_out, pmhc_out
 
 
-class GARSEFFusion(nn.Module):
-    """
-    Complete GARSEF fusion module.
-
-    Combines:
-    1. Multi-modal fusion for TCR and pMHC separately
-    2. Optional cross-attention between TCR and pMHC
-    3. Contrastive and binary prediction heads
-    """
+class BioPhysTCRFusion(nn.Module):
+    """Complete BioPhysTCR fusion module."""
 
     def __init__(
         self,
@@ -376,23 +283,7 @@ class GARSEFFusion(nn.Module):
         pmhc_structure: torch.Tensor,
         pmhc_physchem: torch.Tensor
     ) -> Dict[str, torch.Tensor]:
-        """
-        Args:
-            tcr_sequence: TCR sequence embedding [batch, seq_dim]
-            tcr_structure: TCR structure embedding [batch, struct_dim]
-            tcr_physchem: TCR physicochemical features [batch, phys_dim]
-            pmhc_sequence: pMHC sequence embedding [batch, seq_dim]
-            pmhc_structure: pMHC structure embedding [batch, struct_dim]
-            pmhc_physchem: pMHC physicochemical features [batch, phys_dim]
-
-        Returns:
-            Dict with:
-            - tcr_emb: TCR fused embedding
-            - pmhc_emb: pMHC fused embedding
-            - tcr_proj: TCR contrastive projection
-            - pmhc_proj: pMHC contrastive projection
-            - binding_logits: Binary binding prediction
-        """
+        """Args:"""
         tcr_emb = self.tcr_fusion(tcr_sequence, tcr_structure, tcr_physchem)
         pmhc_emb = self.pmhc_fusion(pmhc_sequence, pmhc_structure, pmhc_physchem)
 
@@ -419,5 +310,5 @@ __all__ = [
     'ContrastiveHead',
     'BinaryHead',
     'CrossAttentionFusion',
-    'GARSEFFusion',
+    'BioPhysTCRFusion',
 ]

@@ -1,11 +1,4 @@
-"""
-Sequence Encoder for GARSEF model.
-
-Processes ESM2 pre-extracted embeddings through MLP layers
-to produce sequence-level representations for TCR and pMHC.
-
-Transformer-based sequence encoder with attention mechanisms
-"""
+"""Sequence Encoder for BioPhysTCR model."""
 
 import torch
 import torch.nn as nn
@@ -14,18 +7,7 @@ from typing import Tuple, Optional
 
 
 class SequenceEncoder(nn.Module):
-    """
-    MLP encoder for ESM2 sequence embeddings.
-
-    Takes pre-computed ESM2 embeddings and projects them
-    to a common representation space.
-
-    Architecture:
-        1. Linear projection from ESM2 dimension
-        2. LayerNorm + activation
-        3. Dropout for regularization
-        4. Optional second MLP layer
-    """
+    """MLP encoder for ESM2 sequence embeddings."""
 
     def __init__(
         self,
@@ -58,14 +40,7 @@ class SequenceEncoder(nn.Module):
         self.encoder = nn.Sequential(*layers)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """
-        Args:
-            x: ESM2 embeddings [batch_size, seq_len, input_dim]
-               or [batch_size, input_dim] if already pooled
-
-        Returns:
-            Encoded sequence [batch_size, hidden_dim]
-        """
+        """Args:"""
         if x.dim() == 3:
             x = x.mean(dim=1)
         elif x.dim() == 1:
@@ -75,12 +50,7 @@ class SequenceEncoder(nn.Module):
 
 
 class SequenceEncoderWithAttention(nn.Module):
-    """
-    Sequence encoder with self-attention for variable-length sequences.
-
-    Uses transformer-style encoding with multi-head attention
-    for CDR3 and epitope sequences.
-    """
+    """Sequence encoder with self-attention for variable-length sequences."""
 
     def __init__(
         self,
@@ -117,15 +87,7 @@ class SequenceEncoderWithAttention(nn.Module):
         x: torch.Tensor,
         mask: Optional[torch.Tensor] = None
     ) -> Tuple[torch.Tensor, torch.Tensor]:
-        """
-        Args:
-            x: ESM2 embeddings [batch_size, seq_len, input_dim] or [batch_size, input_dim]
-            mask: Padding mask [batch_size, seq_len], True = valid
-
-        Returns:
-            Pooled sequence embedding [batch_size, hidden_dim]
-            Sequence representations [batch_size, seq_len, hidden_dim] or [batch_size, 1, hidden_dim]
-        """
+        """Args:"""
         # Handle 2D input (already pooled embeddings)
         if x.dim() == 2:
             # Input is [batch, input_dim], add sequence dimension
@@ -175,24 +137,13 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pe', pe)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """
-        Args:
-            x: Input tensor [batch_size, seq_len, d_model]
-
-        Returns:
-            Positionally encoded tensor [batch_size, seq_len, d_model]
-        """
+        """Args:"""
         x = x + self.pe[:, :x.size(1), :]
         return self.dropout(x)
 
 
 class TCRSequenceEncoder(nn.Module):
-    """
-    Specialized encoder for TCR CDR3 sequences.
-
-    Handles both CDR3alpha and CDR3beta sequences,
-    with optional separate or shared encoding.
-    """
+    """Specialized encoder for TCR CDR3 sequences."""
 
     def __init__(
         self,
@@ -234,16 +185,7 @@ class TCRSequenceEncoder(nn.Module):
         alpha_mask: Optional[torch.Tensor] = None,
         beta_mask: Optional[torch.Tensor] = None
     ) -> torch.Tensor:
-        """
-        Args:
-            alpha_emb: CDR3alpha embeddings [batch, seq_len, input_dim]
-            beta_emb: CDR3beta embeddings [batch, seq_len, input_dim]
-            alpha_mask: Alpha padding mask [batch, seq_len]
-            beta_mask: Beta padding mask [batch, seq_len]
-
-        Returns:
-            TCR representation [batch_size, hidden_dim]
-        """
+        """Args:"""
         embeddings = []
 
         if alpha_emb is not None:
@@ -273,12 +215,7 @@ class TCRSequenceEncoder(nn.Module):
 
 
 class pMHCSequenceEncoder(nn.Module):
-    """
-    Specialized encoder for pMHC sequences.
-
-    Encodes the epitope (peptide) sequence, optionally
-    including MHC context.
-    """
+    """Specialized encoder for pMHC sequences."""
 
     def __init__(
         self,
@@ -315,16 +252,7 @@ class pMHCSequenceEncoder(nn.Module):
         mhc_emb: Optional[torch.Tensor] = None,
         mhc_mask: Optional[torch.Tensor] = None
     ) -> torch.Tensor:
-        """
-        Args:
-            epitope_emb: Epitope embeddings [batch, seq_len, input_dim]
-            epitope_mask: Epitope padding mask [batch, seq_len]
-            mhc_emb: MHC embeddings (optional) [batch, seq_len, input_dim]
-            mhc_mask: MHC padding mask [batch, seq_len]
-
-        Returns:
-            pMHC representation [batch_size, hidden_dim]
-        """
+        """Args:"""
         epitope_pooled, _ = self.epitope_encoder(epitope_emb, epitope_mask)
 
         if self.include_mhc and mhc_emb is not None:

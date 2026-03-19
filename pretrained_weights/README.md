@@ -24,9 +24,9 @@ model.tcr_structure_encoder.load_state_dict(struct_data, strict=False)
 ## Architecture Compatibility
 
 - **Sequence Encoder**: dim=200, 2 transformer layers
-- **Structure Encoder**: dim=512, 3 GraphSAGE layers
+- **Structure Encoder**: dim=512, 3 Graph Neural Network layers
 
-These dimensions are configured in `GARSEFConfig` to match the pre-trained weights.
+These dimensions are configured in `BioPhysTCRConfig` to match the pre-trained weights.
 
 ## Note
 
