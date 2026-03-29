@@ -23,8 +23,9 @@ model.tcr_structure_encoder.load_state_dict(struct_data, strict=False)
 
 ## Architecture Compatibility
 
-- **Sequence Encoder**: dim=200, 2 transformer layers
-- **Structure Encoder**: dim=512, 3 Graph Neural Network layers
+- **Sequence Encoder**: ESM2 input dim=1280, hidden dim=256, 2 transformer layers, 8 attention heads
+- **Structure Encoder**: SaProt input dim=446, hidden dim=256, 3 GAT layers, 8 attention heads
+- **Physicochemical Encoder**: input dim=8, hidden dim=64, 2-layer MLP
 
 These dimensions are configured in `BioPhysTCRConfig` to match the pre-trained weights.
 

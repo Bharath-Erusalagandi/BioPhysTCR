@@ -1,17 +1,18 @@
 # Best Model Checkpoint
 
-**Epoch**: 17  
-**Validation AUC**: 0.9500  
-**Validation AUPR**: 0.9378  
-**Training Time**: 2044.7 seconds  
+**Epoch**: 17
+**Validation AUROC**: 0.932
+**Validation AUPR**: 0.918
+**Training Time**: 2044.7 seconds
 
 **Model Configuration**:
-- Sequence Encoder: Pre-trained (dim=200)
-- Structure Encoder: Pre-trained (dim=512)
+- Sequence Encoder: ESM2 + Transformer (dim=1280 -> 256)
+- Structure Encoder: SaProt + GAT (dim=446 -> 256)
+- Physicochemical Encoder: MLP (dim=8 -> 64)
 - Fusion Dim: 256
 - Projection Dim: 128
 
-**Saved**: 2026-01-31 22:05:12 UTC  
+**Saved**: 2026-01-31 22:05:12 UTC
 **File Size**: ~487 MB (state dict + optimizer + config)
 
 ---

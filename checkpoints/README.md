@@ -6,7 +6,8 @@ Model checkpoints from training are stored here.
 
 - **File**: `best_model.pt` (excluded from git, ~487MB)
 - **Epoch**: 17
-- **Val AUC**: 0.9500
+- **Val AUROC**: 0.932
+- **Val AUPR**: 0.918
 - **Saved**: 2026-01-31 22:05:12 UTC
 
 ## Contents

@@ -30,8 +30,8 @@ This will:
 
 ### Expected Results
 
-- **Standard Benchmark AUC**: 0.95
-- **Zero-Shot AUC**: 0.842
+- **Standard Benchmark AUROC**: 0.932
+- **Zero-Shot AUROC**: 0.827
 
 ## Other Utilities
 
