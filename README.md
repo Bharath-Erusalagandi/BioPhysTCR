@@ -11,17 +11,17 @@ Official repository for **BioPhysTCR**, a multimodal deep learning framework tha
 
 Accurate prediction of TCR-pMHC binding is vital for designing targeted immunotherapies, vaccine development, and cancer treatment. BioPhysTCR integrates three complementary modalities through a cross-attention fusion mechanism:
 
-1. **Sequence Encoders** (ESM2, dim=1280): Captures evolutionary and contextual residue relationships using the ESM2 protein language model, processed through a transformer encoder with self-attention and positional encoding.
-2. **Structural Encoders** (SaProt/GNN, dim=446): Utilizes SaProt foldseek-derived tokens and a 3-layer graph attention network (GAT) with 8 attention heads to model 3D geometric complementarity.
-3. **Physicochemical Encoders** (dim=8): Computes residue-level biophysical descriptors including electrostatic potential, solvent accessibility (SASA), hydrophobicity, net charge, and hydrogen bonding potential.
+1. **Sequence Encoders** (ESM2, dim=1280): Captures evolutionary and contextual residue relationships using the ESM2 protein language model, processed through a 2-layer transformer encoder with 8 attention heads, projected to dim=256.
+2. **Structural Encoders** (SaProt/GraphSAGE, dim=446): Utilizes SaProt foldseek-derived tokens processed by a 3-layer GraphSAGE network on a k-NN graph (k=10) built from Cα distances, followed by a bidirectional LSTM and a self-attention layer (8 heads), yielding a dim=256 embedding via global max-pooling.
+3. **Physicochemical Encoders** (dim=8): Computes 8 residue-level biophysical descriptors — electrostatic potential, SASA, normalized SASA ratio, B-factor, hydrophobicity, net charge, and hydrogen bond donor/acceptor counts — processed through a 2-layer MLP with ReLU activation (dim=64).
 
-These heterogeneous features are fused through a cross-attention mechanism that dynamically weighs information across modalities, enabling the model to learn the interplay between sequence, structural geometry, and biophysical properties.
+These heterogeneous features are fused through a cross-attention mechanism: TCR and pMHC representations are each fused per-molecule via MLP (Stage 2), then cross-attention between the TCR and pMHC embeddings (d=256, 8 heads) produces context-aware representations that capture inter-molecule binding geometry.
 
 **Key Contributions:**
-- Cross-attention fusion mechanism for multimodal integration
+- Cross-attention fusion mechanism for dynamic inter-molecule modality weighting
 - Structure-aware feature extraction from TCR-pMHC 3D complexes
-- Combined contrastive (InfoNCE) and focal loss for training
-- Strong zero-shot generalization to unseen epitopes
+- Combined contrastive (InfoNCE, λ₁=0.5) and focal loss (λ₂=1.0) for training
+- Strong zero-shot generalization to unseen epitopes (+6.6 pp over best baseline)
 
 ---
 
@@ -29,9 +29,9 @@ These heterogeneous features are fused through a cross-attention mechanism that 
 
 | Setting | AUROC | AUPR | MCC |
 |---------|-------|------|-----|
-| Standard Benchmark (IEDB) | **0.932** +/- 0.010 | 0.918 +/- 0.012 | 0.684 +/- 0.018 |
-| Zero-Shot (98 Unseen Epitopes) | **0.827** +/- 0.015 | 0.808 +/- 0.017 | -- |
-| COVID-19 TCR Repertoires | **0.887** | -- | -- |
+| Standard Benchmark (IEDB) | **0.932** ± 0.010 | 0.918 ± 0.012 | 0.684 ± 0.018 |
+| Zero-Shot (98 Unseen Epitopes) | **0.827** ± 0.015 | 0.808 ± 0.017 | — |
+| COVID-19 TCR Repertoires (72 patients) | **0.887** | — | — |
 
 **Ablation Study:**
 
@@ -132,18 +132,18 @@ jupyter notebook notebooks/02_transfer_learning.ipynb
 
 The BioPhysTCR architecture consists of four processing stages:
 
-1. **Modality-Specific Encoding:**
-   - Sequence: ESM2 embeddings -> Transformer encoder (2 layers, 8 heads) -> dim 256
-   - Structure: SaProt tokens -> 3-layer GAT (8 heads) -> dim 256
-   - Physicochemical: 8 residue-level properties -> 2-layer MLP with GELU -> dim 64
+1. **Stage 1 — Modality-Specific Encoding:**
+   - Sequence: ESM2 (d=1280) → 2-layer transformer encoder (8 heads) → d=256
+   - Structure: SaProt tokens (d=446) → 3-layer GraphSAGE (k-NN graph, k=10) → BiLSTM → self-attention (8 heads) → global max-pool → d=256
+   - Physicochemical: 8 residue-level descriptors → 2-layer MLP (ReLU) → d=64
 
-2. **Cross-Attention Fusion:** Six pairwise attention operations (seq-str, seq-phys, str-phys) with dimension d_k = 256
+2. **Stage 2 — Cross-Attention Fusion:** TCR and pMHC modalities are each fused per-molecule via concatenation and a 2-layer MLP. Cross-attention between TCR and pMHC representations (d=256, 8 heads) produces context-aware embeddings.
 
-3. **Interaction Modeling:** Pairwise TCR-epitope attention with biological masking constraints
+3. **Stage 3 — Interaction Modeling:** Cross-attended TCR and pMHC embeddings are concatenated (d=512) and passed through a 2-layer MLP. A separate contrastive projection head maps each embedding to d=128 for InfoNCE loss.
 
-4. **Binding Prediction:** Mean-pooled fusion features + max-pooled interface features -> sigmoid
+4. **Stage 4 — Binding Prediction:** Final binding probability: p_bind = σ(MLP([h_TCR' ‖ h_pMHC']))
 
-**Training:** Combined loss with InfoNCE contrastive loss (lambda=0.5) and focal loss (alpha=0.25, gamma=2.0)
+**Training:** Combined InfoNCE contrastive loss (τ=0.07, λ₁=0.5) and focal loss (α=0.25, γ=2.0, λ₂=1.0). AdamW optimizer (lr=1e-4, weight decay=0.01), cosine LR scheduling with warmup, gradient clipping (norm 1.0), early stopping on validation AUROC.
 
 ---
 
@@ -153,7 +153,7 @@ The BioPhysTCR architecture consists of four processing stages:
 |---------|-------------|--------|
 | IEDB Benchmark | 48,752 TCR-pMHC pairs, 982 epitopes | [IEDB](https://www.iedb.org/) |
 | PDB Structures | 217 TCR-pMHC complex structures | [PDB](https://www.rcsb.org/) |
-| COVID-19 TCR | Single-cell TCR-seq from 72 patients | [Reference r42] |
+| COVID-19 TCR | Single-cell TCR-seq from 72 patients (ImmuneCODE) | Wang et al., Genomics 2021 |
 
 ---
 
@@ -168,11 +168,12 @@ Pre-trained weights are not publicly released due to data privacy constraints. R
 If you use this framework in your research, please cite:
 
 ```bibtex
-@article{biophystcr2026,
+@inproceedings{erusalagandi2026biophystcr,
   title={Multimodal TCR-pMHC Binding Prediction Integrating Sequence,
          Structure, and Physicochemical Features with Cross-Attention Fusion},
   author={Erusalagandi, Bharath},
-  journal={...},
+  booktitle={Proceedings of the IEEE International Conference on Bioinformatics
+             and Biomedicine (BIBM)},
   year={2026}
 }
 ```
